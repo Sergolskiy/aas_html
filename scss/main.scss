@@ -1,0 +1,40 @@
+@import "vendors/normalize";
+@import "vendors/fonts";
+
+@import "help/mixin";
+
+@import "layout/header";
+@import "layout/common";
+@import "layout/search-result";
+@import "layout/scroll-section";
+@import "layout/lot-page";
+@import "layout/footer";
+@import "layout/nice-select";
+@import "layout/slick";
+@import "layout/lite-box";
+@import "layout/components";
+// @import "filter";
+@import "layout/last";
+
+
+ 
+@media screen and (max-width: 1920px) {
+
+}
+@media screen and (max-width: 1200px) {
+    
+}
+@media screen and (max-width: 1024px) {
+ 
+}
+@media screen and (max-width: 768px) {
+
+}
+@media screen and (max-width: 480px) {
+
+}
+@media screen and (max-width: 320px) {
+    
+}
+
+

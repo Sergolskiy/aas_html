@@ -1,0 +1,322 @@
+.nice-select {
+	width: 100%;
+	height: 34px;
+	display: block;
+	color: #7C7C7C;
+	outline: none;
+	font-size: 14px;
+	line-height: 19px;
+	padding: 5px 12px;
+	position: relative;
+	background-color: #fff;
+	transition: all 0.2s ease-in-out;
+	text-align: left;
+
+	border: 1px solid #C4C4C4;
+	border-radius: 4px;
+	cursor: pointer;
+
+	user-select: none;
+	white-space: nowrap;
+	-webkit-tap-highlight-color: transparent;
+
+	@media screen and (max-width: 480px) {
+		width: 259px;
+	}
+}
+
+.nice-select.select-nice_scroll {
+	height: 30px;
+	width: 257px;
+
+	@media screen and (min-width: 360px) {
+		width: 300px;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 12px;
+		right: 11px;
+		transition: all 0.15s ease-in-out;
+		border: 6px solid transparent;
+		border-top: 7px solid #000;
+	}
+}
+
+.nice-select.scroll-year {
+	width: 119px !important;
+	height: 30px;
+
+	@media screen and (min-width: 360px) {
+		width: 140px !important;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 12px;
+		right: 11px;
+		transition: all 0.15s ease-in-out;
+		border: 6px solid transparent;
+		border-top: 7px solid #000;
+	}
+}
+
+.nice-select.scroll-year {
+	width: 140px;
+	height: 30px;
+}
+
+.nice-select.scroll-year .option {
+	width: 117px !important;
+
+	@media screen and (min-width: 360px) {
+		width: 138px !important;
+	}
+
+}
+
+.nice-select.select-nice_scroll .option {
+	width: 255px;
+	@media screen and (min-width: 360px) {
+		width: 298px !important;
+	}
+}
+
+
+.nice-select.filter {
+	width: 150px;
+	padding: 4px 8px;
+	font-size: 12px;
+	color: #000000;
+	height: 28px;
+	margin: 0;
+
+	&:after {
+		display: none;
+	}
+
+	&:before {
+		content: url('../img/filter-top.svg');
+		position: absolute;
+		top: 58%;
+		right: 8px;
+		transform: translateY(-50%);
+		z-index: 1;
+	}
+}
+
+.nice-select.filter .option {
+	width: 148px;
+	padding: 0 8px;
+	font-size: 12px;
+	position: relative;
+
+	&:nth-child(2n-1) {
+		&:before {
+			content: url('../img/filter-top.svg');
+			position: absolute;
+			top: 58%;
+			right: 8px;
+			transform: translateY(-50%);
+			z-index: 1;
+		}
+	}
+
+	&:nth-child(2n) {
+		&:before {
+			content: url('../img/filter-down.svg');
+			position: absolute;
+			top: 58%;
+			right: 8px;
+			transform: translateY(-50%);
+			z-index: 1;
+		}
+	}
+}
+
+.nice-select.items {
+	width: 44px;
+	padding: 4px 0px 6px 7px;
+	font-size: 12px;
+	color: #000000;
+	height: 28px;
+	margin: 0;
+
+	&:after {
+		top: 12px;
+		right: 5px;
+		border: 4px solid transparent;
+		border-top: 5px solid #000;
+	}
+
+}
+
+.nice-select.items .option {
+	width: 42px;
+	padding: 0 7px;
+	font-size: 12px;
+}
+
+.nice-select.items.open:after {
+	top: 7px
+}
+
+.disable {
+	color: #989898 !important;
+}
+
+.nice-select:hover {}
+
+.nice-select:active,
+.nice-select.open,
+.nice-select:focus {
+	border: 1px solid #0F73D2;
+	// box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.nice-select:after {
+	content: '';
+	position: absolute;
+	top: 14px;
+	right: 11px;
+	transition: all 0.15s ease-in-out;
+	border: 6px solid transparent;
+	border-top: 6px solid #025EAA;
+}
+
+.nice-select.open:after {
+	-webkit-transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+	top: 8px
+}
+
+.nice-select.open .list {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: scale(1) translateY(0);
+	-ms-transform: scale(1) translateY(0);
+	transform: scale(1) translateY(0);
+}
+
+.nice-select.disabled {
+	border-color: #ededed;
+	color: #999;
+	pointer-events: none;
+}
+
+.nice-select.disabled:after {
+	border-color: #cccccc;
+}
+
+.nice-select.wide {
+	width: 100%;
+}
+
+.nice-select.wide .list {
+	left: 0 !important;
+	right: 0 !important;
+}
+
+.nice-select .list {
+	background-color: #fff;
+	opacity: 0;
+	overflow: hidden;
+	padding: 5px 0 5px;
+	pointer-events: none;
+	position: absolute;
+	top: 95%;
+	left: -1px;
+	z-index: 9;
+	border: 1px solid #0F73D2;
+	border-top: none;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 0 0 4px 4px;
+
+	transform-origin: 50% 0;
+	transform: scale(0.75) translateY(-21px);
+	transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+	-webkit-transform-origin: 50% 0;
+	-ms-transform-origin: 50% 0;
+	-webkit-transform: scale(0.75) translateY(-21px);
+	-ms-transform: scale(0.75) translateY(-21px);
+	-webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+
+	max-width: calc(100% + 2px);
+	max-height: 239px;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		left: 50%;
+		height: 1px;
+		width: 92%;
+		background: #0F73D2;
+		z-index: 2;
+		transform: translateX(-50%);
+	}
+}
+
+.nice-select .list:hover .option:not(:hover) {
+	background-color: transparent !important;
+}
+
+.nice-select .option {
+	width: 246px;
+	height: 20px;
+	padding: 0 12px;
+	font-weight: 300;
+	list-style: none;
+	outline: none;
+	text-align: left;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+	font-size: 14px;
+	line-height: 19px;
+	color: #000000;
+	cursor: pointer;
+
+	@media screen and (max-width: 893px) {
+		width: 318px;
+	}
+
+	@media screen and (max-width: 480px) {
+		width: 257px;
+	}
+}
+
+.nice-select.short {
+	width: 115px;
+}
+
+.nice-select.short .option {
+	width: 113px;
+}
+
+option.short {
+	width: 115px !important;
+}
+
+.nice-select .option:hover {
+	background-color: #0F73D2;
+	color: #fff;
+}
+
+.nice-select .option.disabled {
+	background-color: transparent;
+	color: #999;
+	cursor: default;
+}
+
+.no-csspointerevents .nice-select .list {
+	display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+	display: block;
+}

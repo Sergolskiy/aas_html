@@ -1,0 +1,520 @@
+.range-container {
+}
+.input-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input-value {
+  width: 50%;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+}
+.input-value:last-child {
+  text-align: right;
+}
+.input-date {
+  width: 100%;
+  max-width: 81px;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 12px;
+  line-height: 13px;
+  color: #000000;
+}
+.range-container.dates .ui-widget-content {
+  background: linear-gradient(180deg, #8f8f8f 0%, #a7a7a7 100%) !important;
+  border-radius: 10px !important;
+}
+.range-container.dates .input-line {
+  margin-bottom: 15px;
+}
+.range-container.default .input-line {
+  margin-top: 11px;
+}
+.range-container.dates .ui-slider .ui-slider-handle {
+  width: 20px !important;
+  height: 20px !important;
+}
+.range-container.dates .ui-widget-header {
+  height: 4px !important;
+  background: #025eaa !important;
+  border: none !important;
+}
+.range-container.dates .ui-slider-horizontal .ui-slider-handle {
+  cursor: pointer !important;
+  top: -7px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-image: url(../img/range-date.png) !important;
+  background-size: 12px 20px !important;
+  background-position: center 10% !important;
+  background-repeat: no-repeat !important;
+}
+.range-container.dates .ui-slider-horizontal {
+  height: 4px !important;
+}
+.ui-slider-horizontal .ui-slider-handle:focus {
+  outline: none;
+}
+.ui-datepicker {
+  z-index: 11 !important;
+}
+.range-container.default .ui-widget-header {
+  background: #025eaa !important;
+}
+.range-container.default .ui-widget-content {
+  border: none;
+  background: linear-gradient(180deg, #8f8f8f 0%, #bab6b6 100%);
+  border-radius: 10px;
+}
+.range-container.default .ui-state-default,
+.range-container.default .ui-widget-content .ui-state-default,
+.range-container.default .ui-widget-header .ui-state-default {
+  background: #ffffff;
+  border: 2px solid #025eaa;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+.range-container.default .ui-slider-horizontal .ui-slider-handle {
+  top: -4px;
+}
+.sidebar-item {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c4c4c4;
+}
+.sidebar-btn {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+}
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+}
+.show .sidebar-arrow {
+  transform: rotate(180deg);
+  transition: all 0.5s linear;
+}
+.sidebar-body {
+  /* max-height: 0px;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  padding-top: 0px; */
+  display: none;
+  /* padding-top: 20px; */
+}
+.sidebar-arrow {
+  flex: 0 0 21px;
+  height: 8px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+  transition: all 0.5s linear;
+  transform: rotate(0deg);
+}
+.sidebar-arrow > * {
+  width: 21px;
+  height: 8px;
+  display: block;
+}
+.years-wrap .sidebar-title .year-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.years-wrap .sidebar-title .year-labels span {
+  width: 115px;
+}
+.show + .sidebar-body {
+  /* display: flex; */
+  /* padding-top: 20px;
+  max-height: 500px;
+  transition: all 0.5s linear;
+  overflow: visible; */
+}
+.sidebar-body:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #c4c4c4;
+}
+.drop-down-mobile {
+  display: none;
+  width: 100%;
+  align-items: center;
+}
+.drop-down-mobile .drop-down-mobile-title {
+  display: block;
+  margin-left: 13px;
+  margin-right: 13px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #0083fb;
+}
+.drop-down-mobile-title::before {
+  content: attr(data-hide);
+}
+.show .drop-down-mobile-title::before {
+  content: attr(data-show);
+}
+.full-div {
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */
+@media screen and (max-width: 1193px) {
+  .sidebar-body {
+    overflow: visible;
+  }
+  .drop-down-mobile {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .drop-down-mobile .sidebar-arrow {
+    display: block !important;
+    position: relative;
+  }
+  .drop-down-sidebar .damage {
+    width: 33.33%;
+  }
+  .sidebar-wrap {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .drop-down-sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .drop-down-sidebar .vehicle {
+    width: 50%;
+    order: 0;
+  }
+  .drop-down-sidebar .make {
+    width: 50%;
+    order: 0;
+  }
+  .drop-down-sidebar .model {
+    width: 50%;
+    order: 1;
+  }
+  .drop-down-sidebar .years-wrap {
+    width: 50%;
+    order: 0;
+  }
+  .drop-down-sidebar .damage {
+    width: 33.33%;
+    order: 2;
+  }
+  .drop-down-sidebar .odometer {
+    width: 33.33%;
+    order: 2;
+  }
+  .drop-down-sidebar .location {
+    width: 33.33%;
+    order: 2;
+  }
+  .drop-down-sidebar .dates {
+    order: 2;
+    width: 33.33%;
+  }
+  .drop-down-sidebar .title {
+    order: 3;
+    width: 16.665%;
+  }
+  .drop-down-sidebar .lot-type {
+    order: 3;
+    width: 16.665%;
+  }
+  .drop-down-sidebar .extra {
+    order: 3;
+    width: 33.33%;
+  }
+  .drop-down-mobile {
+    order: 1;
+    width: 100%;
+  }
+  .drop-down-mobile ~ .sidebar-item {
+    display: none;
+  }
+  .drop-down-mobile.show ~ .sidebar-item {
+    /* padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 500px;
+    overflow: hidden;
+    transition: all 0.5s linear; */
+  }
+  .drop-down-sidebar .sidebar-btn {
+    order: 4;
+    width: 100%;
+  }
+  .drop-down-sidebar .sidebar-btn .search-btn {
+    display: block;
+  }
+  .drop-down-sidebar .sidebar-item {
+    border-bottom: none;
+  }
+  .drop-down-sidebar .sidebar-arrow {
+    display: none;
+    top: 0;
+  }
+  .drop-down-sidebar .nice-select.short {
+    width: calc(50% - 12.5px);
+  }
+  .years-wrap .sidebar-title .year-labels span {
+    width: calc(50% - 12.5px);
+  }
+  .sidebar-btn {
+    padding-top: 10px;
+  }
+  .checkbox-title {
+    padding-bottom: 20px;
+  }
+  .drop-down-mobile ~ .sidebar-item .sidebar-body {
+    display: flex !important;
+  }
+  .drop-down-sidebar label:before {
+    top: 10px;
+  }
+ .drop-down-sidebar input[type="checkbox"]:checked + label:after {
+    top: 7px;
+}
+.checkbox-wrap .sidebar-body {
+  display: flex !important;
+}
+
+}
+@media screen and (max-width: 893px) {
+  .drop-down-sidebar {
+    max-width: 350px;
+    min-width: auto;
+  }
+  .drop-down-sidebar .sidebar-item {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .drop-down-sidebar .vehicle {
+    width: 100%;
+  }
+  .drop-down-sidebar .make {
+    width: 100%;
+  }
+  .drop-down-sidebar .years-wrap {
+    width: 100%;
+    order: 1;
+  }
+  .drop-down-sidebar .model {
+    width: 100%;
+  }
+  .drop-down-sidebar .damage {
+    width: 100%;
+  }
+  .drop-down-sidebar .odometer {
+    width: 100%;
+  }
+  .drop-down-sidebar .location {
+    width: 100%;
+  }
+  .drop-down-sidebar .dates {
+    width: 100%;
+  }
+  .checkbox-wrap_tablet {
+    margin-bottom: 0px;
+  }
+  .drop-down-sidebar .lot-type {
+    width: 33.33%;
+  }
+  .drop-down-sidebar .extra {
+    width: 33.33%;
+  }
+  .drop-down-sidebar .title {
+    width: 33.33%;
+  }
+  .checkbox-wrap_mob {
+    margin-right: 0 !important;
+  }
+  .drop-down-sidebar label {
+    display: block;
+  }
+  .drop-down-sidebar .title {
+    padding-left: 15px;
+    padding-right: 5px;
+  }
+  .drop-down-sidebar .extra {
+    padding-left: 5px;
+    padding-right: 15px;
+  }
+  .drop-down-sidebar .lot-type {
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .drop-down-sidebar .nice-select {
+    width: 100%;
+  }
+  .drop-down-sidebar .nice-select .list{
+    width: 100%;
+    left: 0px;
+  }
+  .drop-down-sidebar .extra {
+    width: auto;
+  }
+  .drop-down-sidebar .extra label {
+    max-width: 90px;
+  }
+  .drop-down-sidebar .title {
+    width: auto;
+  }
+}
+@media screen and (max-width: 359px) {
+  .drop-down-sidebar {
+    justify-content: flex-start;
+  }
+  .drop-down-sidebar .extra {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .drop-down-sidebar .extra label {
+    max-width: 101px;
+}
+}
+/* datepiker custom */
+.ui-datepicker{
+    background: #EEEEEE !important;
+    border: 1px solid #C9C9C9 !important;
+    border-radius: 2px !important;
+}
+.ui-widget-header{
+  background: #ffffff !important;
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
+  width: auto !important;
+  border: none !important;
+  -webkit-appearance: none;
+}
+select.ui-datepicker-months::-ms-expand {
+  display: none !important;
+}
+select.ui-datepicker-year::-ms-expand {
+  display: none !important;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+  background: #025EAA;
+  border-radius: 3px !important;
+  background-image: none !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+  background: #FFFFFF !important;
+  border: 1px solid #C9C9C9 !important;
+  color: #025EAA !important;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+  background: #025EAA !important;
+border: 1px solid #025EAA !important;
+color: #FFFFFF !important;
+}
+.ui-corner-all{
+  display: block;
+}
+.ui-datepicker-next .ui-icon.ui-icon-circle-triangle-e:after{
+  content: '';
+  border: 4px solid transparent;
+  border-left: 5px solid #ffffff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 72%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.ui-datepicker-prev .ui-icon.ui-icon-circle-triangle-w:after{
+  content: '';
+  border: 4px solid transparent;
+  border-right: 5px solid #ffffff;
+  width:0;
+  height:0;
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.ui-datepicker .ui-datepicker-next-hover{
+  right: 2px !important;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 2px !important;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+  top: 2px !important;
+}
+.ui-widget-header .ui-state-hover{
+  border: none !important;
+  background: none !important;
+}
+
+#ui-datepicker-div { display: none; }
+
+.result-btn {
+    width: 180px;
+}
+
+.result__time-wrap:after {
+    /*content: url(../img/clock.png);*/
+    position: absolute;
+    top: 0;
+    left: 150px;
+    z-index: 1;
+}
+
+.result__ended {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #050505;
+    width: 120px;
+    height: 42px;
+    background: linear-gradient(161.78deg, #EFFF8A 18.49%, #FFE247 76.93%);
+    border: 1px solid #F3D155;
+    padding: 13px 0;
+    margin-bottom: 5px;
+}
+
+.result__live {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #050505;
+    width: 120px;
+    height: 42px;
+    background: linear-gradient(161.78deg, #93FF8A 18.49%, #5CDB51 76.93%);
+    border: 1px solid #10C200;
+    padding: 13px 0;
+    margin-bottom: 5px;
+}

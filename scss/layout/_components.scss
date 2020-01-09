@@ -1,0 +1,143 @@
+* {
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans';
+}
+
+a {
+	transition: all 0.3s ease-in-out;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, p {
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+input {
+	border: none;
+	background-color: transparent;
+	outline: none;
+	-webkit-appearance: none;
+	&::placeholder {
+
+	}
+}
+
+textarea {
+	resize: none;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	-webkit-appearance: none;
+	&::placeholder {
+
+	}
+}
+
+button {
+	border: none;
+	background-color: transparent;
+	transition: all 0.3s ease-in-out;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	&_bg {
+		background-image: url('../img/pattern-bg2.png');
+	}
+}
+
+.container {
+	max-width: 1900px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.section-padding {
+	padding: 30px 0 50px;
+	@media screen and (max-width: 768px) {
+		padding: 20px 0 40px;
+	}
+}
+
+.section-title {
+	font-size: 26px;
+	line-height: 35px;
+	color: #000000;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: 400;
+
+	@media screen and (max-width: 768px) {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+}
+
+$color_1: #FF0000;
+
+.bid_form_info {
+  font-size: 10px;
+}
+.bid_form_error {
+  font-size: 10px;
+  display: none;
+  color: $color_1;
+}
+.form_point_block {
+  width: 80%;
+  flex-direction: row;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#state-1 {
+  .choose-place__box-middle {
+    flex-direction: column;
+  }
+}
+.sub_final {
+  display: none;
+}
+.btn-buy {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #state-1 {
+    .choose-place__box-bottom {
+      flex-direction: row;
+    }
+  }
+  #state-2 {
+    .choose-place__box-bottom {
+      flex-direction: row;
+    }
+  }
+  #state-3 {
+    .choose-place__box-bottom {
+      flex-direction: row;
+    }
+  }
+}

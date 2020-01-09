@@ -1,0 +1,544 @@
+.enter-btn {
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #000;
+  background: #FDB81E;
+  box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.25), 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 8px 25px 9px;
+}
+
+
+.switch-outside{
+  display: block;
+  width: 40px;
+  height: 20px;
+  background: linear-gradient(201.8deg, #474747 13.33%, #C4C4C4 77.78%);
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+
+  transition: 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+.switch-inside{
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.switch-checkbox:checked + .switch-outside{
+  background: linear-gradient(146.98deg, #025EAA 9.89%, #2F93E6 71.74%);
+}
+
+.switch-checkbox:checked + .switch-outside .switch-inside{
+  left: 19px;
+}
+
+input[type="checkbox"].switch-checkbox + .switch-outside:before{
+  display: none;
+}
+
+input[type="checkbox"].switch-checkbox:checked + .switch-outside:before{
+  content: attr(data-on);
+  background: transparent;
+  border: 0;
+  width: auto;
+  height: auto;
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 7px;
+  line-height: 11px;
+  position: relative;
+  left: 6px;
+  text-transform: uppercase;
+}
+
+input[type="checkbox"].switch-checkbox:checked + .switch-outside:after{
+  display: none;
+}
+
+input[type="checkbox"].switch-checkbox + .switch-outside:after{
+  content: attr(data-off);
+  background: transparent;
+  position: absolute;
+  border: 0;
+  color: white;
+  top: 50%;
+  right: 4px;
+  width: auto;
+  height: auto;
+  transform: rotate(0) translateY(-50%);
+  margin-top: 1px;
+  font-weight: bold;
+  font-size: 7px;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+
+.account {
+
+  max-width: 1030px;
+  background: #FFFFFF;
+  border: 1px solid #C9C9C9;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  margin: 40px auto 40px;
+
+  &__inner{
+
+  }
+
+  &__head{
+    height: 75px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+
+  &__head-nav{
+    display: flex;
+  }
+
+  &__head-item{
+    margin-right: 42px;
+
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  &__head-link{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+    position: relative;
+
+    &:after{
+      content: "";
+      background: #025EAA;
+      height: 6px;
+      width: 0;
+      bottom: -8px;
+      position: absolute;
+      transition: 0.3s;
+    }
+
+    &--active:after{
+      content: "";
+      background: #025EAA;
+      height: 6px;
+      width: 100%;
+      bottom: -10px;
+      position: absolute;
+    }
+
+    &:hover:after{
+      width: 100%;
+    }
+  }
+
+  &__body{
+    background: #F5F5F5;
+    border: 1px solid #C9C9C9;
+    padding: 8px;
+  }
+
+
+
+  &__body-inner{
+    background: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    padding: 30px;
+  }
+
+  &__title{
+
+  }
+
+  &__title-i{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #000000;
+  }
+
+  &__newsletter{
+    margin-top: 22px;
+    margin-bottom: 17px;
+
+    .switch-outside{
+      margin-right: 15px;
+    }
+  }
+
+  &__newsletter-inner{
+    display: flex;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__body-txt{
+    font-size: 14px;
+    line-height: 19px;
+
+    a{
+      text-decoration-line: underline;
+      color: #2AA2F8;
+    }
+  }
+
+  &__body-information{
+    margin-top: 27px;
+  }
+
+  &__body-information_block{
+    margin-top: 20px;
+    margin-left: -3px;
+  }
+
+  &-bids__body{
+    .account__body-inner{
+      border: 0;
+      padding: 0;
+    }
+  }
+}
+
+
+.account-information{
+  display: flex;
+  flex-wrap: wrap;
+
+  &__items{
+    border-left: 1px solid #C9C9C9;
+    padding-left: 21px;
+    width: 50%;
+  }
+
+  &__item{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 19px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  &__name{
+    width: 240px;
+  }
+
+  &__option{
+    width: auto;
+
+    &--green{
+      color: #009C35;
+      font-weight: bold;
+    }
+
+    &--red{
+      color: #F22424;
+      font-weight: bold;
+    }
+  }
+
+  &__btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+}
+
+
+.bids{
+
+  &__list{
+    position: relative;
+    overflow: auto;
+    max-height: 450px;
+  }
+
+  &__item{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  &__img{
+    display: flex;
+    max-width: 150px;
+
+    img{
+      max-width: 150px;
+    }
+  }
+
+  &__center{
+    padding-left: 20px;
+    padding-top: 15px;
+    flex: 1 1 auto;
+  }
+
+  &__center-item{
+
+  }
+
+  &__name{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #287DFF;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__label{
+    font-weight: bold;
+    font-size: 8px;
+    line-height: 6px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 4px 9px;
+    border-radius: 10px;
+    margin-left: 10px;
+
+    &--blue{
+      background: #0D5DB8;
+    }
+  }
+
+  &__characteristics{
+    display: flex;
+  }
+
+  &__characteristics-block{
+    display: flex;
+    margin-right: 60px;
+
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  &__characteristics-names{
+    margin-right: 20px;
+  }
+
+  &__characteristics-name{
+    font-size: 12px;
+    line-height: 16px;
+    color: #4D4D4D;
+    margin-bottom: 7px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  &__characteristics-values{
+
+  }
+
+  &__characteristics-value{
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-bottom: 7px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  &__right{
+    max-width: 145px;
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &--highest{
+      background: #00899C;
+    }
+
+    &--won{
+      background: #009C35;
+    }
+
+    &--lost{
+      background: #760000;
+    }
+
+    &--outbid{
+      background: #D01900;
+    }
+
+    &--pending{
+      background: #959595;
+    }
+
+    &-unable{
+      background: #423F3F;
+    }
+  }
+
+  &__status{
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__status-name{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__price{
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__price-count{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+}
+
+
+
+
+@media (max-width: 1050px) {
+
+  .account {
+    margin: 40px 15px 40px;
+  }
+
+  .account__head{
+    &:after{
+      content: url("../img/account/scroll-img.svg");
+      width: 76px;
+      height: 70px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 16px;
+      background: white;
+      padding-top: 4px;
+    }
+  }
+
+  .account__head-inner{
+    position: relative;
+    overflow: scroll;
+    overflow-y: hidden;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    max-width: calc(100% - 50px);
+
+
+  }
+
+  .account__head-nav{
+    min-width: 990px;
+  }
+
+
+}
+
+@media (max-width: 810px) {
+
+  .account-information{
+    flex-direction: column;
+  }
+
+  .account-information__items{
+    padding-bottom: 15px;
+    width: 100%;
+
+    &:last-child{
+      padding-bottom: 0;
+    }
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .account-information__name{
+    width: auto;
+  }
+
+  .account-information__item{
+    justify-content: space-between;
+  }
+
+  .account-information__option{
+    width: 35%;
+  }
+
+  .account__body-inner {
+    padding: 30px 10px;
+  }
+}
+
+@media (max-width: 359px) {
+
+  .account-information__items {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .account__body-information_block {
+    margin-left: 0;
+  }
+
+}
