@@ -191,7 +191,7 @@
                     <div class="account__head-inner">
                         <ul class="account__head-nav">
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link ">
+                                <a href="#" class="account__head-link account__head-link--active">
                                     My Account
                                 </a>
                             </li>
@@ -201,7 +201,7 @@
                                 </a>
                             </li>
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link account__head-link--active">
+                                <a href="#" class="account__head-link">
                                     Bidding limit
                                 </a>
                             </li>
@@ -234,153 +234,44 @@
                     </div>
 
                 </div>
-                <div class="account__body account-bidding">
+                <div class="account__body">
+                    <div class="a-document">
+                        <div class="a-document__top">
+                            <div class="a-document__info">
+                                <div class="account__title">
+                                    <div class="account__title-i">
+                                        Upload documents
+                                    </div>
+                                </div>
+                                <div class="a-document__info-txt">
+                                    Upload a copy of your passport or national ID. Supported files are PNG / JPG / PDF. The file size must not exceed 10 MB.
+                                </div>
+                            </div>
+                            <div class="a-document__drug-drop">
+                                <div class="a-document__drug-drop-i">
+                                    <img class="a-document__drug-drop_img" src="./img/account/dgndp.svg" alt="img">
+                                    <div class="a-document__drug-drop_txt">
+                                        <b>Choose a file</b> or <b>drag and drop</b> it here.
+                                    </div>
 
-                    <div class="a-note">
-                        NOTE: All information that is indicated in the <b>CONTACT INFORMATION</b> tab will be used in the documents (BOS, the Invoice etc.)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="a-document__center">
+                            <div class="account__title">
+                                <div class="account__title-i">
+                                    Uploaded documents
+                                </div>
+                            </div>
+                        </div>
+                        <div class="a-document__bottom">
+                            <div class="account__title">
+                                <div class="account__title-i">
+                                    Billing documents
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="a-contact">
-                        <form action="#">
-                            <div class="account__title">
-                                <div class="account__title-i">
-                                    Account information
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap required-input required-input--err" >
-                                <input type="text" name="first-name" class="a-contact__input" required placeholder="First Name">
-                                <div class="a-contact__input-err">
-                                    First name field can contain “A-z, -” symbols only
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap required-input required-input--err">
-                                <input type="text" name="last-name" class="a-contact__input" placeholder="Last Name">
-                                <div class="a-contact__input-err">
-                                    Last name field can not be empty
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap required-input required-input--err">
-                                <input type="text" name="company" class="a-contact__input" placeholder="Company">
-                                <div class="a-contact__input-err">
-                                    Company field can contain “A-z, 0-9, -” symbols only
-                                </div>
-                            </div>
-
-                            <div class="account__title">
-                                <div class="account__title-i">
-                                    Physical address
-                                </div>
-                            </div>
-
-                            <div class="a-contact__select-wrap required-select required-input--err">
-                                <select name="a-contact-select" id="a-contact-select" required>
-                                    <option selected>Please Select Country</option>
-                                    <option>USA</option>
-                                    <option>EN</option>
-                                    <option>FR</option>
-                                    <option>UA</option>
-                                </select>
-                                <div class="a-contact__input-err">
-                                    Country field can not be empty
-                                </div>
-                            </div>
-
-                            <div class="a-contact__input-wrap required-input required-input--err">
-                                <input type="text" name="company" class="a-contact__input" placeholder="Address">
-                                <div class="a-contact__input-err">
-                                    Address field can not be empty
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap required-input required-input--err">
-                                <input type="text" name="company" class="a-contact__input" placeholder="City">
-                                <div class="a-contact__input-err">
-                                    City field can contain “A-z, -” symbols only
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap required-input required-input--err zip-input">
-                                <input type="text" name="company" class="a-contact__input" placeholder="Zip">
-                                <div class="a-contact__input-err">
-                                    Zip field can not be empty
-                                </div>
-                            </div>
-                            <div class="a-contact__input-wrap a-contact__input-wrap--phone required-input required-input--err">
-                                <div class="a-contact__phone-country">
-                                    <div class="a-contact__phone-current">
-                                        <img src="./img/account/flag.jpg" alt="img">
-                                        <span class="a-contact__phone-index">+1</span>
-                                    </div>
-                                    <div class="a-contact__phone-list">
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+1</span>
-                                        </div>
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+2</span>
-                                        </div>
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+3</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <input type="text" name="phone" class="a-contact__input" placeholder="Phone Number">
-                                <div class="a-contact__input-err">
-                                    Phine number field can not be empty
-                                </div>
-                            </div>
-
-
-                            <div class="account__title">
-                                <div class="account__title-i">
-                                    Mailing address
-                                </div>
-                            </div>
-
-                            <div class="a-contact__input-checkbox-wrap">
-                                <input type="checkbox" name="check" id="check" class="a-contact__input-checkbox" placeholder="Phone Number" checked>
-                                <label for="check">My mailing address is the same as the physical address.</label>
-                            </div>
-
-                            <div class="a-contact__physical-address">
-                                <div class="a-contact__select-wrap required-select required-input--err">
-                                    <select name="a-contact-select2" id="a-contact-select2" required>
-                                        <option selected>Please Select Country</option>
-                                        <option>USA</option>
-                                        <option>EN</option>
-                                        <option>FR</option>
-                                        <option>UA</option>
-                                    </select>
-                                    <div class="a-contact__input-err">
-                                        Country field can not be empty
-                                    </div>
-                                </div>
-
-                                <div class="a-contact__input-wrap required-input required-input--err">
-                                    <input type="text" name="company" class="a-contact__input" placeholder="Address">
-                                    <div class="a-contact__input-err">
-                                        Address field can not be empty
-                                    </div>
-                                </div>
-                                <div class="a-contact__input-wrap required-input required-input--err">
-                                    <input type="text" name="company" class="a-contact__input" placeholder="City">
-                                    <div class="a-contact__input-err">
-                                        City field can contain “A-z, -” symbols only
-                                    </div>
-                                </div>
-                                <div class="a-contact__input-wrap required-input required-input--err zip-input">
-                                    <input type="text" name="company" class="a-contact__input" placeholder="Zip">
-                                    <div class="a-contact__input-err">
-                                        Zip field can not be empty
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button class="enter-btn">SAVE</button>
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -437,7 +328,6 @@
 </script>
 <script src="js/main.js"></script>
 <script src="js/buynow.js"></script>
-<script src="js/account.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/header.js"></script>
 
