@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto</title>
+    <link rel="stylesheet" href="css/intlTelInput.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/acoount.css">
 </head>
@@ -304,30 +305,11 @@
                                 </div>
                             </div>
                             <div class="a-contact__input-wrap a-contact__input-wrap--phone required-input required-input--err">
-                                <div class="a-contact__phone-country">
-                                    <div class="a-contact__phone-current">
-                                        <img src="./img/account/flag.jpg" alt="img">
-                                        <span class="a-contact__phone-index">+1</span>
+                                <div class="a-contact__input-wrap a-contact__input-wrap--phone required-input">
+                                    <input type="tel" id="phone" placeholder="Phone Number">
+                                    <div class="a-contact__input-err">
+                                        Phine number field can not be empty
                                     </div>
-                                    <div class="a-contact__phone-list">
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+1</span>
-                                        </div>
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+2</span>
-                                        </div>
-                                        <div class="a-contact__phone-item">
-                                            <img src="./img/account/flag.jpg" alt="img">
-                                            <span class="a-contact__phone-index">+3</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <input type="text" name="phone" class="a-contact__input" placeholder="Phone Number">
-                                <div class="a-contact__input-err">
-                                    Phine number field can not be empty
                                 </div>
                             </div>
 
@@ -437,6 +419,7 @@
 </script>
 <script src="js/main.js"></script>
 <script src="js/buynow.js"></script>
+<script src="js/intlTelInput.min.js"></script>
 <script src="js/account.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/header.js"></script>

@@ -1022,7 +1022,10 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     display: none;
 
     &--open{
-      display: block;
+      //display: block;
+      .zip-input{
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -1423,6 +1426,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
 
 
 
+
 @media (max-width: 1050px) {
 
   .account {
@@ -1796,6 +1800,22 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
 }
 
 
+.iti--allow-dropdown{
+  width: 100%;
+}
 
+.iti--allow-dropdown input, .iti--allow-dropdown input[type=tel]{
+  background: #FFFFFF;
+  border: 1px solid #C9C9C9;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  padding-left: 74px;
+}
 
-
+.iti__selected-flag{
+  background: #F3F3F3;
+  padding: 0 12px 0 15px;
+}

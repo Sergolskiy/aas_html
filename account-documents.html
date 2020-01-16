@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto</title>
+    <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/acoount.css">
 </head>
@@ -236,7 +237,7 @@
                 </div>
                 <div class="account__body">
                     <div class="a-document">
-                        <div class="a-document__top">
+                        <div class="a-document__top" id="mydropzone">
                             <div class="a-document__info">
                                 <div class="account__title">
                                     <div class="account__title-i">
@@ -247,8 +248,8 @@
                                     Upload a copy of your passport or national ID. Supported files are PNG / JPG / PDF. The file size must not exceed 10 MB.
                                 </div>
                             </div>
-                            <div class="a-document__drug-drop">
-                                <div class="a-document__drug-drop-i">
+                            <div class="a-document__drug-drop" style="pointer-events: none">
+                                <div class="a-document__drug-drop-i" >
                                     <img class="a-document__drug-drop_img" src="./img/account/dgndp.svg" alt="img">
                                     <div class="a-document__drug-drop_txt">
                                         <b>Choose a file</b> or <b>drag and drop</b> it here.
@@ -256,13 +257,24 @@
 
                                 </div>
                             </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-dz-uploadprogress>
+                                    <span class="progress-text"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="a-document__center">
+
+
                             <div class="account__title">
                                 <div class="account__title-i">
                                     Uploaded documents
                                 </div>
                             </div>
+
+                            <div class="a-document__img-wrap">
+                            </div>
+
                         </div>
                         <div class="a-document__bottom">
                             <div class="account__title">
@@ -274,6 +286,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="tpl">
+            <div class="dz-details">
+                <div class="dz-filename"><span data-dz-name></span></div>
+                <div class="dz-size" data-dz-size></div>
+                <img data-dz-thumbnail />
+            </div>
+            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+            <div class="dz-success-mark"><span>✔</span></div>
+            <div class="dz-error-mark"><span>✘</span></div>
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+        </div>
         </div>
 
 
@@ -327,6 +351,8 @@
 <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js">
 </script>
 <script src="js/main.js"></script>
+<script src="js/dropzone.js"></script>
+<script src="js/account.js"></script>
 <script src="js/buynow.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/header.js"></script>
