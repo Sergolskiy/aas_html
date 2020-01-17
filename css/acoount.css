@@ -129,6 +129,21 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   visibility: visible;
   z-index: 10000; }
 
+.my-account-block--bids .account__head {
+  border-bottom: 1px solid #C9C9C9; }
+
+.my-account-block--bids .account__inner {
+  padding-bottom: 10px;
+  background: #F5F5F5; }
+
+.my-account-block--bids .account__body {
+  padding: 0 10px;
+  margin-top: 10px;
+  border-top: 0; }
+
+.my-account-block--bids .account__head {
+  background: white; }
+
 .account {
   max-width: 1030px;
   background: #FFFFFF;
@@ -286,7 +301,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   color: #287DFF;
   display: flex;
   align-items: center;
-  margin-bottom: 10px; }
+  margin-bottom: 5px; }
 
 .bids__name-i {
   display: block;
@@ -680,6 +695,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     .a-contact__input::placeholder {
       font-size: 14px;
       line-height: 19px;
+      line-height: 37px;
       color: #909090; }
     .a-contact__input:-ms-input-placeholder {
       font-size: 14px;
@@ -704,13 +720,13 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     .a-contact__select-wrap:after {
       content: "";
       background: white url("../img/account/arr-down.svg") center center no-repeat;
-      width: 13px;
-      height: 13px;
+      width: 17px;
+      height: 40px;
       display: block;
       position: absolute;
-      top: 15px;
-      right: 7px;
-      background-size: 82%; }
+      top: 1px;
+      right: 1px;
+      background-size: 57%; }
     .a-contact__select-wrap select {
       background: #FFFFFF;
       border: 1px solid #C9C9C9;
@@ -718,7 +734,8 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
       border-radius: 2px;
       width: 100%;
       height: 42px;
-      padding-left: 15px; }
+      padding-left: 15px;
+      font-size: 14px; }
   .a-contact__input-checkbox-wrap {
     margin-bottom: 20px; }
   .a-contact__input-checkbox + label {
@@ -1075,7 +1092,8 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
 
 .a-credentials {
   background: white;
-  padding: 30px; }
+  padding: 30px;
+  border: 1px solid #C9C9C9; }
   .a-credentials__input-wrap {
     margin-bottom: 20px;
     max-width: 400px; }
@@ -1314,6 +1332,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   .a-document__bottom {
     padding: 30px 15px; }
   .a-document__info {
+    margin-right: 0;
     padding: 30px 15px; } }
 
 @media (max-width: 810px) {
@@ -1376,7 +1395,9 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     width: 750px;
     min-width: 750px; }
   .transaction-table-wrap {
-    min-width: 801px; } }
+    min-width: 801px; }
+  .info__txt {
+    transform: translateX(-30%); } }
 
 @media (max-width: 400px) {
   .bidding__count-block {
@@ -1387,7 +1408,10 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   .bidding__left {
     padding: 30px 15px; }
   .a-credentials {
-    padding: 30px 10px; } }
+    padding: 30px 10px; }
+  .info__txt {
+    width: 260px;
+    transform: translateX(-38%); } }
 
 @media (max-width: 359px) {
   .account-information__items {
@@ -1415,7 +1439,10 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   .table-mobile {
     width: 50px; }
   .transaction-table td:nth-child(1) {
-    width: 192px; } }
+    width: 192px; }
+  .a-document__drug-drop_txt {
+    max-width: 170px;
+    text-align: center; } }
 
 .iti--allow-dropdown {
   width: 100%; }
@@ -1433,6 +1460,9 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
 .iti__selected-flag {
   background: #F3F3F3;
   padding: 0 12px 0 15px; }
+
+.iti__selected-dial-code {
+  font-size: 14px; }
 
 .mCSB_scrollTools_horizontal {
   opacity: 0 !important; }

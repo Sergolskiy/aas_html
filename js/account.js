@@ -6,7 +6,6 @@ $(document).ready(function () {
             return;
         }
         if ($(this).closest('.new-bidding').length > 0) {
-            bindingCalculate();
             val = val - 1000;
             if (val == 3000) {
                 return;
@@ -16,6 +15,7 @@ $(document).ready(function () {
         }
 
         input.val(new Intl.NumberFormat('en-EN').format(val));
+        bindingCalculate();
     });
 
 
@@ -23,15 +23,26 @@ $(document).ready(function () {
         var input = $(this).prev('.bidding__count-input');
         var val = input.val().replace(",", "");
 
+
         if ($(this).closest('.new-bidding').length > 0) {
-            bindingCalculate();
+
+            if (parseInt(val) == 100000) {
+                return;
+            }
             val = parseInt(val) + 1000;
         } else {
+
+
+            if (parseInt(val) == 10) {
+                return;
+            }
+
             val = parseInt(val) + 1;
         }
 
-
         input.val(new Intl.NumberFormat('en-EN').format(val));
+        bindingCalculate();
+
 
     });
 
@@ -63,11 +74,17 @@ $(document).ready(function () {
     });
     $('.bidding__count-input').on('keyup', function (e) {
         var count = 1;
+        var contMax = 10;
         if ($(this).closest('.new-bidding').length > 0) {
             count = 4000;
+            contMax = 100000;
         }
-        if ($(this).val() < count) {
-            $(this).val(count);
+        console.log($(this).val());
+        if ($(this).val().replace(",", "") < count) {
+            $(this).val((new Intl.NumberFormat('en-EN').format(count)));
+        }
+        if ($(this).val().replace(",", "") < contMax) {
+            $(this).val((new Intl.NumberFormat('en-EN').format(contMax)));
         }
     });
 
@@ -124,37 +141,37 @@ $(document).ready(function () {
     Dropzone.autoDiscover = false;
 
 // Dropzone class:
-    if($('#mydropzone').length > 0){
+    if ($('#mydropzone').length > 0) {
         var myDropzone = new Dropzone("div#mydropzone", {
-            url: "http://www.mocky.io/v2/5e038ec731000029c26b2c54",
+            url: "https://www.mocky.io/v2/5e038ec731000029c26b2c54",
             addRemoveLinks: true,
             acceptedFiles: 'image/jpeg,image/jpg,image/png,application/pdf',
             // previewTemplate: $('#tpl').html(),
-            addedfile: function (file ,b ,c) {
+            addedfile: function (file, b, c) {
                 console.log(file);
-                if(!(file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'application/pdf') ){
+                if (!(file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'application/pdf')) {
                     return;
                 }
 
                 var htmlFile =
-                    '<div data-id="'+file.upload.uuid+'" class="a-document__file">\n' + '' +
+                    '<div data-id="' + file.upload.uuid + '" class="a-document__file">\n' + '' +
                     '<div class="a-document__close-file"></div> ' +
                     '<div class="a-document__img">\n' +
                     '<img  src="./img/account/file.png"/>' +
                     '<div class="a-document__progress-bar">' +
-                    '<div class="a-document__progress-line"></div>'+
+                    '<div class="a-document__progress-line"></div>' +
                     '</div>' +
                     '</div>' +
                     '</div>';
                 $('.a-document__no-img').hide();
                 $('.a-document__img-wrap').append(htmlFile);
 
-                if($('.a-document__img-wrap').width() > $('.a-document__img-scrolling').width()){
+                if ($('.a-document__img-wrap').width() > $('.a-document__img-scrolling').width()) {
                     $('.a-document__center').addClass('scroll');
                     $('.a-document__img-scrolling').addClass('cus-scroll');
                     $(".cus-scroll").mCustomScrollbar({
-                        axis:"x",
-                        advanced:{ autoExpandHorizontalScroll:true }
+                        axis: "x",
+                        advanced: {autoExpandHorizontalScroll: true}
                     });
                 }
             },
@@ -162,11 +179,14 @@ $(document).ready(function () {
 
             },
             uploadprogress: function (file, progress, c) {
-                $('.a-document__file[data-id="'+file.upload.uuid+'"] .a-document__progress-line').css('width', progress+'%');
+                $('.a-document__file[data-id="' + file.upload.uuid + '"] .a-document__progress-line').css('width', progress + '%');
+                if(progress == 100){
+                    $('.a-document__file[data-id="' + file.upload.uuid + '"] .a-document__progress-bar').hide();
+                }
             },
             success: function (file, b, c) {
                 console.log(file.upload.uuid);
-                $('.a-document__file[data-id="'+file.upload.uuid+'"] img').attr('src', file.dataURL);
+                $('.a-document__file[data-id="' + file.upload.uuid + '"] img').attr('src', file.dataURL);
 
             },
             complete: function (file) {
@@ -181,31 +201,31 @@ $(document).ready(function () {
 
     $(document).on('click', '.a-document__close-file', function () {
         $(this).closest('.a-document__file').remove();
-        if($('.a-document__img-wrap').width() < $('.a-document__img-scrolling').width()){
+        if ($('.a-document__img-wrap').width() < $('.a-document__img-scrolling').width()) {
             $('.a-document__center').removeClass('scroll');
         }
-        if($('.a-document__file').length == 0){
+        if ($('.a-document__file').length == 0) {
             $('.a-document__no-img').show();
         }
     });
 
     $(window).resize(function () {
-        if($('.a-document__invoice-wrap').width() > $('.a-document__invoice-scrolling').width()){
+        if ($('.a-document__invoice-wrap').width() > $('.a-document__invoice-scrolling').width()) {
             $('.a-document__bottom').addClass('scroll');
             $('.a-document__invoice-scrolling').addClass('cus-scroll');
             $(".cus-scroll").mCustomScrollbar({
-                axis:"x",
-                advanced:{ autoExpandHorizontalScroll:true }
+                axis: "x",
+                advanced: {autoExpandHorizontalScroll: true}
             });
         } else {
             $('.a-document__bottom').removeClass('scroll cus-scroll');
         }
 
-        if($(document).width() < 1050){
-            $('.account__head-inner').scrollLeft(-1*($('.account__head-inner').offset().left - $('.account__head-link--active').offset().left))
+        if ($(document).width() < 1050) {
+            $('.account__head-inner').scrollLeft(-1 * ($('.account__head-inner').offset().left - $('.account__head-link--active').offset().left))
         }
     });
-    $(window).on("load",function() {
+    $(window).on("load", function () {
         $(window).resize();
     });
 
