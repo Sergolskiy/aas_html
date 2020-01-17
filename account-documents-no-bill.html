@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto</title>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/acoount.css">
 </head>
@@ -196,7 +198,7 @@
                                 </a>
                             </li>
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link account__head-link--active">
+                                <a href="#" class="account__head-link">
                                     My Bids
                                 </a>
                             </li>
@@ -211,7 +213,7 @@
                                 </a>
                             </li>
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link">
+                                <a href="#" class="account__head-link account__head-link--active">
                                     Documents
                                 </a>
                             </li>
@@ -234,559 +236,73 @@
                     </div>
 
                 </div>
-                <div class="account__body account-bids__body">
-                    <div class="account__body-inner">
-                        <div class="bids">
-                            <div class="bids__list">
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 4.jpg" alt="img">
-                                    </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                     2014 BENTLEY FLYING SPU
-                                                </span>
-                                                <div class="bids__label bids__label--blue">
-                                                    Copart
-                                                </div>
-                                            </a>
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--highest ">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Highest bidder
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                999,999 USD
-                                            </div>
-                                        </div>
+                <div class="account__body">
+                    <div class="a-document">
+                        <div class="a-document__top" id="mydropzone">
+                            <div class="a-document__info">
+                                <div class="account__title">
+                                    <div class="account__title-i">
+                                        Upload documents
                                     </div>
                                 </div>
-
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 3.jpg" alt="img">
-                                    </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                    2005 DODGE GRAND CARAVAN OU...
-                                                </span>
-                                                <div class="bids__label bids__label--red">
-                                                    IAA
-                                                </div>
-                                            </a>
-
-
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--won">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Highest bidder
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                999,999 USD
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="a-document__info-txt">
+                                    Upload a copy of your passport or national ID. Supported files are PNG / JPG / PDF. The file size must not exceed 10 MB.
                                 </div>
-
-
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 3.jpg" alt="img">
+                            </div>
+                            <div class="a-document__drug-drop" style="pointer-events: none">
+                                <div class="a-document__drug-drop-i" >
+                                    <img class="a-document__drug-drop_img" src="./img/account/dgndp.svg" alt="img">
+                                    <div class="a-document__drug-drop_txt">
+                                        <b>Choose a file</b> or <b>drag and drop</b> it here.
                                     </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                     2014 BENTLEY FLYING SPU
-                                                </span>
-                                                <div class="bids__label bids__label--blue">
-                                                    Copart
-                                                </div>
-                                            </a>
 
-
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--lost">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Won
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                100 USD
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
+                            <div id="tpl">
+                                <div class="dz-details"></div>
+                            </div>
+                        </div>
+                        <div class="a-document__center">
 
 
-
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 3.jpg" alt="img">
-                                    </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                    2005 DODGE GRAND CARAVAN OU...
-                                                </span>
-                                                <div class="bids__label bids__label--red">
-                                                    IAA
-                                                </div>
-                                            </a>
-
-
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--outbid">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Outbid
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                6,100 USD
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="account__title">
+                                <div class="account__title-i">
+                                    Uploaded documents
                                 </div>
+                            </div>
 
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 3.jpg" alt="img">
-                                    </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                    2005 DODGE GRAND CARAVAN OU...
-                                                </span>
-                                                <div class="bids__label bids__label--red">
-                                                    IAA
-                                                </div>
-                                            </a>
-
-
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--pending">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Pending
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                34,100 USD
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="a-document__img-scrolling">
+                                <div class="a-document__img-wrap">
                                 </div>
-
-
-                                <div class="bids__item">
-                                    <div class="bids__img">
-                                        <img src="./img/account/image 3.jpg" alt="img">
-                                    </div>
-                                    <div class="bids__center">
-                                        <div class="bids__center-item">
-                                            <a href="#" class="bids__name">
-                                                <span class="bids__name-i">
-                                                    2005 DODGE GRAND CARAVAN OU...
-                                                </span>
-                                                <div class="bids__label bids__label--blue">
-                                                    Copart
-                                                </div>
-                                            </a>
-
-
-                                            <div class="bids__characteristics">
-                                                <div class="bids__characteristics-inner">
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                VIN:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Auction date:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Time left:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                3FAHP071X7R266042
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                6/19/2019
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                24 hours 30 minutes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bids__characteristics-block">
-                                                        <div class="bids__characteristics-names">
-                                                            <div class="bids__characteristics-name">
-                                                                Primary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Secondary damage:
-                                                            </div>
-                                                            <div class="bids__characteristics-name">
-                                                                Start code:
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="bids__characteristics-values">
-                                                            <div class="bids__characteristics-value">
-                                                                Repossession
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Uknown
-                                                            </div>
-                                                            <div class="bids__characteristics-value">
-                                                                Run and Drive
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="bids__right bids__right--unable">
-                                        <div class="bids__status">
-                                            Status:
-                                            <div class="bids__status-name">
-                                                Unable to bid
-                                            </div>
-                                        </div>
-                                        <div class="bids__price">
-                                            Your bid:
-                                            <div class="bids__price-count">
-                                                34,100 USD
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
 
                             </div>
+                            <div class="a-document__no-img">
+                                <img src="./img/account/no-pic.png" alt="img">
+                            </div>
+
+
+                        </div>
+                        <div class="a-document__bottom">
+                            <div class="account__title">
+                                <div class="account__title-i">
+                                    Billing documents
+                                </div>
+                            </div>
+
+                            <div class="a-document__invoice-scrolling">
+                                <div class="a-document__no-invoice">
+                                    <img src="./img/account/invoiceblank.svg" alt="img">
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
 
     </main>

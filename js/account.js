@@ -16,9 +16,9 @@ $(document).ready(function () {
         }
 
         input.val(new Intl.NumberFormat('en-EN').format(val));
-
-
     });
+
+
     $('.bidding__count-plus').click(function () {
         var input = $(this).prev('.bidding__count-input');
         var val = input.val().replace(",", "");
@@ -124,50 +124,89 @@ $(document).ready(function () {
     Dropzone.autoDiscover = false;
 
 // Dropzone class:
-    var myDropzone = new Dropzone("div#mydropzone", {
-        url: "http://www.mocky.io/v2/5e038ec731000029c26b2c54",
-        addRemoveLinks: true,
-        previewTemplate: $('#tpl').html(),
-        uploadprogress: function (file, progress, bytesSent) {
-            if (file.previewElement) {
-                var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
-                progressElement.style.width = progress + "%";
-                progressElement.querySelector(".progress-text").textContent = progress + "%";
-            }
-        },
-        processing: function () {
-            // alert(324)
-        },
-        uploadprogress: function (a, b, c) {
-            console.log(b);
-        },
-        success: function (a, b, c) {
-            // console.log(a.dataURL);
-            var htmlImg =
-                '<div class="a-document__img">\n' +
-                    '<img src="'+a.dataURL+'"/>' +
-                '</div>';
-            // console.log(b);
-            // console.log(c);
-            console.log(htmlImg);
-        },
-        complete: function (file) {
-            console.log(232423);
-            // console.log(file);
-            var htmlRemove =
-                '<div class="a-document__remove" onclick="deleteFile()">\n' +
-                'sdfsdfdfsd'+
-                '</div>';
+    if($('#mydropzone').length > 0){
+        var myDropzone = new Dropzone("div#mydropzone", {
+            url: "http://www.mocky.io/v2/5e038ec731000029c26b2c54",
+            addRemoveLinks: true,
+            acceptedFiles: 'image/jpeg,image/jpg,image/png,application/pdf',
+            // previewTemplate: $('#tpl').html(),
+            addedfile: function (file ,b ,c) {
+                console.log(file);
+                if(!(file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'application/pdf') ){
+                    return;
+                }
 
-            function deleteFile(){
-                myDropzone.removeFile(file);
+                var htmlFile =
+                    '<div data-id="'+file.upload.uuid+'" class="a-document__file">\n' + '' +
+                    '<div class="a-document__close-file"></div> ' +
+                    '<div class="a-document__img">\n' +
+                    '<img  src="./img/account/file.png"/>' +
+                    '<div class="a-document__progress-bar">' +
+                    '<div class="a-document__progress-line"></div>'+
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                $('.a-document__no-img').hide();
+                $('.a-document__img-wrap').append(htmlFile);
+
+                if($('.a-document__img-wrap').width() > $('.a-document__img-scrolling').width()){
+                    $('.a-document__center').addClass('scroll');
+                    $('.a-document__img-scrolling').addClass('cus-scroll');
+                    $(".cus-scroll").mCustomScrollbar({
+                        axis:"x",
+                        advanced:{ autoExpandHorizontalScroll:true }
+                    });
+                }
+            },
+            processing: function () {
+
+            },
+            uploadprogress: function (file, progress, c) {
+                $('.a-document__file[data-id="'+file.upload.uuid+'"] .a-document__progress-line').css('width', progress+'%');
+            },
+            success: function (file, b, c) {
+                console.log(file.upload.uuid);
+                $('.a-document__file[data-id="'+file.upload.uuid+'"] img').attr('src', file.dataURL);
+
+            },
+            complete: function (file) {
+
             }
 
-            $('.a-document__img-wrap').append(htmlRemove);
+            // previewTemplate: document.getElementById('template-preview').innerHTML,
+            // dictDefaultMessage: "Choose or drop  file from your computer"
+        });
+    }
+
+
+    $(document).on('click', '.a-document__close-file', function () {
+        $(this).closest('.a-document__file').remove();
+        if($('.a-document__img-wrap').width() < $('.a-document__img-scrolling').width()){
+            $('.a-document__center').removeClass('scroll');
+        }
+        if($('.a-document__file').length == 0){
+            $('.a-document__no-img').show();
+        }
+    });
+
+    $(window).resize(function () {
+        if($('.a-document__invoice-wrap').width() > $('.a-document__invoice-scrolling').width()){
+            $('.a-document__bottom').addClass('scroll');
+            $('.a-document__invoice-scrolling').addClass('cus-scroll');
+            $(".cus-scroll").mCustomScrollbar({
+                axis:"x",
+                advanced:{ autoExpandHorizontalScroll:true }
+            });
+        } else {
+            $('.a-document__bottom').removeClass('scroll cus-scroll');
         }
 
-        // previewTemplate: document.getElementById('template-preview').innerHTML,
-        // dictDefaultMessage: "Choose or drop  file from your computer"
+        if($(document).width() < 1050){
+            $('.account__head-inner').scrollLeft(-1*($('.account__head-inner').offset().left - $('.account__head-link--active').offset().left))
+        }
+    });
+    $(window).on("load",function() {
+        $(window).resize();
     });
 
 // If you use jQuery, you can use the jQuery plugin Dropzone ships with:

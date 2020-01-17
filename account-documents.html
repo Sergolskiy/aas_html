@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto</title>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/acoount.css">
@@ -192,7 +193,7 @@
                     <div class="account__head-inner">
                         <ul class="account__head-nav">
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link account__head-link--active">
+                                <a href="#" class="account__head-link ">
                                     My Account
                                 </a>
                             </li>
@@ -212,7 +213,7 @@
                                 </a>
                             </li>
                             <li class="account__head-item">
-                                <a href="#" class="account__head-link">
+                                <a href="#" class="account__head-link account__head-link--active">
                                     Documents
                                 </a>
                             </li>
@@ -236,6 +237,9 @@
 
                 </div>
                 <div class="account__body">
+                    <div class="a-note a-note--red">
+                        NOTE: You have reached the limit of maximum 5 documents per account. Delete some douments to upload new.
+                    </div>
                     <div class="a-document">
                         <div class="a-document__top" id="mydropzone">
                             <div class="a-document__info">
@@ -257,10 +261,8 @@
 
                                 </div>
                             </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-primary" role="progressbar" data-dz-uploadprogress>
-                                    <span class="progress-text"></span>
-                                </div>
+                            <div id="tpl">
+                                <div class="dz-details"></div>
                             </div>
                         </div>
                         <div class="a-document__center">
@@ -272,8 +274,15 @@
                                 </div>
                             </div>
 
-                            <div class="a-document__img-wrap">
+                            <div class="a-document__img-scrolling">
+                                <div class="a-document__img-wrap">
+                                </div>
+
                             </div>
+                            <div class="a-document__no-img">
+                                <img src="./img/account/no-pic.png" alt="img">
+                            </div>
+
 
                         </div>
                         <div class="a-document__bottom">
@@ -282,23 +291,160 @@
                                     Billing documents
                                 </div>
                             </div>
+
+                            <div class="a-document__invoice-scrolling">
+                                <div class="a-document__invoice-wrap">
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                    <div class="a-document__invoice">
+                                        <div class="a-document__invoice-name">
+                                            Invoice
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            #1111111111
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Date
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            12/27/2019
+                                        </div>
+                                        <div class="a-document__invoice-name">
+                                            Amount
+                                        </div>
+                                        <div class="a-document__invoice-num">
+                                            444,444.80 USD
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="tpl">
-            <div class="dz-details">
-                <div class="dz-filename"><span data-dz-name></span></div>
-                <div class="dz-size" data-dz-size></div>
-                <img data-dz-thumbnail />
-            </div>
-            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-            <div class="dz-success-mark"><span>✔</span></div>
-            <div class="dz-error-mark"><span>✘</span></div>
-            <div class="dz-error-message"><span data-dz-errormessage></span></div>
-        </div>
-   
+
+
 
 
     </main>
@@ -352,6 +498,7 @@
 </script>
 <script src="js/main.js"></script>
 <script src="js/dropzone.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/account.js"></script>
 <script src="js/buynow.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
