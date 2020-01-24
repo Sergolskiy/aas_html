@@ -1358,6 +1358,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
 
 .a-transaction{
   position: relative;
+  padding-bottom: 10px;
 
 
   &:before{
@@ -1376,7 +1377,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 98%;
+    width: 100%;
     height: 10px;
     background: #F5F5F5;
     z-index: 10;
@@ -1384,10 +1385,23 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
 
   &__inner{
     overflow: auto;
-    max-height: 442px;
+    max-height: 432px;
     padding: 10px;
+    padding-bottom: 0;
     background: #F5F5F5;
     position: relative;
+
+    &--clear {
+      .transaction-table {
+        min-width: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .transaction-table-wrap{
+        min-width: 500px;
+      }
+    }
   }
 
 
@@ -1410,6 +1424,8 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
 .transaction-table{
   width: 100%;
   min-width: 935px;
+
+
 
   &-wrap{
     min-height: 422px;
@@ -1535,6 +1551,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     &::placeholder {
       font-size: 14px;
       line-height: 19px;
+      line-height: 37px;
       color: #909090;
     }
 
@@ -1728,20 +1745,37 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
   }
   .a-transaction__inner {
     border-right: 10px solid whitesmoke;
+
+    &--clear{
+      border-right: 0;
+      .transaction-table{
+        //border-right: 0;
+      }
+    }
+
   }
 
   .transaction-table {
-    width: 935px;
-    min-width: 935px;
+    //width: 935px;
+    //min-width: 935px;
   }
 
   .transaction-table-wrap{
-    min-width: 985px;
+    //min-width: 985px;
     background: white;
+    border: 0;
+  }
+
+  .transaction-table{
+    border: 1px solid #C9C9C9;
   }
 
   .transaction-table tr {
     border-right: 0;
+  }
+
+  .transaction-table td:last-child {
+    padding-right: 60px;
   }
 
   .table-mobile{
@@ -1752,18 +1786,18 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     overflow: hidden;
     height: 422px;
     padding-top: 1px;
-    background: rgba(2, 94, 170, 0.15) url(../img/account/scroll-img.svg) center center no-repeat;
-    border-bottom: 1px solid #C9C9C9;
-    border-top: 1px solid #C9C9C9;
+    //background: rgba(2, 94, 170, 0.15) url(../img/account/scroll-img.svg) center center no-repeat;
+    //border-bottom: 1px solid #C9C9C9;
+    //border-top: 1px solid #C9C9C9;
 
   }
 
   .table-mobile > div{
     height: 60px;
-    border-bottom: 1px solid #C9C9C9;
-    background: #d9e7f2;
+    /* border-bottom: 1px solid #C9C9C9; */
+    /* background: #d9e7f2; */
+    background: rgba(2, 94, 170, 0.15);
     position: relative;
-    //border-left: 10px solid white;
 
     &:after{
       content: '';
@@ -1776,14 +1810,14 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     }
 
     &:nth-child(4){
-      background: #d9e7f2 url(../img/account/scroll-img.svg) center center no-repeat;
+      background: rgba(2, 94, 170, 0.15) url(../img/account/scroll-img.svg) center center no-repeat;
     }
 
     &:last-child{
       border-bottom: 0;
     }
     &:first-child{
-      border-bottom: 1px solid #C9C9C9;
+      //border-bottom: 1px solid #C9C9C9;
     }
   }
 }
@@ -1795,7 +1829,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
   }
 
   .bids__characteristics{
-    overflow: scroll;
+    overflow: auto;
   }
 
   .bids__characteristics-inner{
@@ -1900,9 +1934,9 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     padding: 0 15px;
   }
 
-  .transaction-table-wrap {
-    min-width: 931px;
-  }
+  //.transaction-table-wrap {
+  //  min-width: 931px;
+  //}
 
   .transaction-table {
     width: 880px;
@@ -1948,6 +1982,11 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
   }
 }
 
+@media (max-width: 552px) {
+  .a-transaction__inner {
+    border-right: 10px solid whitesmoke;
+  }
+}
 @media (max-width: 500px) {
 
   .account-information__name{
@@ -1987,9 +2026,9 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after{
     min-width: 750px;
   }
 
-  .transaction-table-wrap {
-    min-width: 801px;
-  }
+  //.transaction-table-wrap {
+  //  min-width: 801px;
+  //}
 
   .info__txt {
     transform: translateX(-30%);

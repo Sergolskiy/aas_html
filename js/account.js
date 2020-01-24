@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.bidding__count-minus').click(function () {
         var input = $(this).next('.bidding__count-input');
         var val = input.val().replace(",", "");
+        var flagNewBidding = false;
         if (val == 1) {
             return;
         }
@@ -12,16 +13,18 @@ $(document).ready(function () {
             }
         } else {
             val = val - 1;
+            flagNewBidding = true;
         }
 
         input.val(new Intl.NumberFormat('en-EN').format(val));
-        bindingCalculate();
+        bindingCalculate(flagNewBidding);
     });
 
 
     $('.bidding__count-plus').click(function () {
         var input = $(this).prev('.bidding__count-input');
         var val = input.val().replace(",", "");
+        var flagNewBidding = false;
 
 
         if ($(this).closest('.new-bidding').length > 0) {
@@ -37,11 +40,13 @@ $(document).ready(function () {
                 return;
             }
 
+            flagNewBidding = true;
+
             val = parseInt(val) + 1;
         }
 
         input.val(new Intl.NumberFormat('en-EN').format(val));
-        bindingCalculate();
+        bindingCalculate(flagNewBidding);
 
 
     });
@@ -63,7 +68,13 @@ $(document).ready(function () {
         }
     });
 
+
+
     $('.bidding__count-input').on('keypress', function (e) {
+        if(e.keyCode == 13) {
+           $(this).focusout();
+        }
+
         if ($(this).val() == 0) {
             $(this).val('');
         }
@@ -72,23 +83,36 @@ $(document).ready(function () {
             e.preventDefault();
         }
     });
-    $('.bidding__count-input').on('keyup', function (e) {
+
+    $('.bidding__count-input').focusout(function (e) {
         var count = 1;
         var contMax = 10;
-        if ($(this).closest('.new-bidding').length > 0) {
+        var checkField = $(this).closest('.new-bidding').length > 0;
+        if (checkField) {
             count = 4000;
             contMax = 100000;
+
+            $(this).val(new Intl.NumberFormat('en-EN')
+                .format(Math.round(parseInt($(this).val().replace(",", "")) / 1000) * 1000));
         }
-        console.log($(this).val());
-        if ($(this).val().replace(",", "") < count) {
+
+        if (parseInt($(this).val().replace(",", "")) < count) {
             $(this).val((new Intl.NumberFormat('en-EN').format(count)));
         }
-        if ($(this).val().replace(",", "") < contMax) {
+
+        if (parseInt($(this).val().replace(",", "")) > contMax) {
+            console.log($(this).val());
             $(this).val((new Intl.NumberFormat('en-EN').format(contMax)));
         }
+
+        checkField == true ?  bindingCalculate(false) :  bindingCalculate(true);
+
     });
 
-    function bindingCalculate() {
+    $('.bidding__count-input').focusout();
+
+    function bindingCalculate(flagNewBidding) {
+        var limit = $('.new-bidding input');
         var valLimit = $('.new-bidding input').val().replace(",", "");
         var amountOfVehicles = $('.amount-vehicles input');
         var totalLimit = $('.total-limit');
@@ -100,15 +124,25 @@ $(document).ready(function () {
         var availableBiddingCount = 0;
         var securityDepositCount = 0;
 
+
         // 1 Amount of vehicles
-        amountOfVehicles.val(valLimit / 4000);
+        if(flagNewBidding == false){
+            // if bidding limit change
+            if(valLimit / 4000 > 10){
+                amountOfVehicles.val(10);
+            } else {
+                amountOfVehicles.val(new Intl.NumberFormat('en-EN').format(Math.floor( valLimit / 4000)));
+            }
+        } else {
+            limit.val(new Intl.NumberFormat('en-EN').format(parseInt(amountOfVehicles.val()) * 4000));
+        }
 
         // 2 Total bidding limit
         availableBiddingCount = parseInt(valLimit) + availableBidding;
         totalLimit.html(new Intl.NumberFormat('en-EN').format(availableBiddingCount));
 
         // 3 Total amount of vehicles
-        totalAmount.html(new Intl.NumberFormat('en-EN').format(availableBiddingCount / 4000));
+        totalAmount.html(new Intl.NumberFormat('en-EN').format(Math.floor( availableBiddingCount / 4000)));
 
         // 4 Security deposit, USD
         securityDepositCount = parseInt(valLimit) / 10;
@@ -127,9 +161,9 @@ $(document).ready(function () {
         return true;
     }
 
-    $('.new-bidding input').on('change paste keyup', function () {
-        bindingCalculate();
-    });
+    // $('.new-bidding input').on('change paste keyup', function () {
+    //     bindingCalculate();
+    // });
 
     if ($('#phone').length > 0) {
         var input = document.querySelector("#phone");
@@ -222,10 +256,17 @@ $(document).ready(function () {
         }
 
         if ($(document).width() < 1050) {
-            $('.account__head-inner').scrollLeft(-1 * ($('.account__head-inner').offset().left - $('.account__head-link--active').offset().left))
+
+            $('.account__head-inner').scrollLeft(0);
+            $('.account__head-inner').scrollLeft(-1 * ($('.account__head-inner').offset().left - $('.account__head-link--active').offset().left));
         }
     });
     $(window).on("load", function () {
+        $(window).resize();
+    });
+
+    // fix mozilla
+    setTimeout(function () {
         $(window).resize();
     });
 

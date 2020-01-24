@@ -989,7 +989,8 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   justify-content: center; }
 
 .a-transaction {
-  position: relative; }
+  position: relative;
+  padding-bottom: 10px; }
   .a-transaction:before {
     content: "";
     position: absolute;
@@ -1004,16 +1005,23 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 98%;
+    width: 100%;
     height: 10px;
     background: #F5F5F5;
     z-index: 10; }
   .a-transaction__inner {
     overflow: auto;
-    max-height: 442px;
+    max-height: 432px;
     padding: 10px;
+    padding-bottom: 0;
     background: #F5F5F5;
     position: relative; }
+    .a-transaction__inner--clear .transaction-table {
+      min-width: auto !important;
+      max-width: 100% !important;
+      width: 100% !important; }
+    .a-transaction__inner--clear .transaction-table-wrap {
+      min-width: 500px; }
   .a-transaction__table {
     background: #FFFFFF; }
   .a-transaction__clear {
@@ -1109,6 +1117,7 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     .a-credentials__input::placeholder {
       font-size: 14px;
       line-height: 19px;
+      line-height: 37px;
       color: #909090; }
     .a-credentials__input:-ms-input-placeholder {
       font-size: 14px;
@@ -1236,14 +1245,17 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     width: 100%; }
   .a-transaction__inner {
     border-right: 10px solid whitesmoke; }
-  .transaction-table {
-    width: 935px;
-    min-width: 935px; }
+    .a-transaction__inner--clear {
+      border-right: 0; }
   .transaction-table-wrap {
-    min-width: 985px;
-    background: white; }
+    background: white;
+    border: 0; }
+  .transaction-table {
+    border: 1px solid #C9C9C9; }
   .transaction-table tr {
     border-right: 0; }
+  .transaction-table td:last-child {
+    padding-right: 60px; }
   .table-mobile {
     position: absolute;
     right: 10px;
@@ -1251,14 +1263,12 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     top: 10px;
     overflow: hidden;
     height: 422px;
-    padding-top: 1px;
-    background: rgba(2, 94, 170, 0.15) url(../img/account/scroll-img.svg) center center no-repeat;
-    border-bottom: 1px solid #C9C9C9;
-    border-top: 1px solid #C9C9C9; }
+    padding-top: 1px; }
   .table-mobile > div {
     height: 60px;
-    border-bottom: 1px solid #C9C9C9;
-    background: #d9e7f2;
+    /* border-bottom: 1px solid #C9C9C9; */
+    /* background: #d9e7f2; */
+    background: rgba(2, 94, 170, 0.15);
     position: relative; }
     .table-mobile > div:after {
       content: '';
@@ -1269,18 +1279,16 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
       width: 10px;
       height: 100%; }
     .table-mobile > div:nth-child(4) {
-      background: #d9e7f2 url(../img/account/scroll-img.svg) center center no-repeat; }
+      background: rgba(2, 94, 170, 0.15) url(../img/account/scroll-img.svg) center center no-repeat; }
     .table-mobile > div:last-child {
-      border-bottom: 0; }
-    .table-mobile > div:first-child {
-      border-bottom: 1px solid #C9C9C9; } }
+      border-bottom: 0; } }
 
 @media (max-width: 900px) {
   .bids__center {
     width: calc(100% - 150px - 135px - 15px);
     padding-left: 15px; }
   .bids__characteristics {
-    overflow: scroll; }
+    overflow: auto; }
   .bids__characteristics-inner {
     min-width: 570px; }
   .bids__center-item {
@@ -1345,8 +1353,6 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
       padding-bottom: 0; }
   .transaction-table td {
     padding: 0 15px; }
-  .transaction-table-wrap {
-    min-width: 931px; }
   .transaction-table {
     width: 880px;
     min-width: 880px; } }
@@ -1374,6 +1380,10 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
     overflow: auto;
     overflow-y: hidden; } }
 
+@media (max-width: 552px) {
+  .a-transaction__inner {
+    border-right: 10px solid whitesmoke; } }
+
 @media (max-width: 500px) {
   .account-information__name {
     width: auto; }
@@ -1394,8 +1404,6 @@ input[type="checkbox"].switch-checkbox + .switch-outside:after {
   .transaction-table {
     width: 750px;
     min-width: 750px; }
-  .transaction-table-wrap {
-    min-width: 801px; }
   .info__txt {
     transform: translateX(-30%); } }
 
