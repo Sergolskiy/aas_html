@@ -4,7 +4,7 @@ let app = new Vue({
     searchQuery: '',
     isActive: false,
     en: true,
-    ua: false
+    ua: false,
   },
   mounted() {
     document.addEventListener('click', this.closeLanguagePopup);
