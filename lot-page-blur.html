@@ -325,7 +325,7 @@
                                     <p class="vehicle-rating__title">AAS vehicle rating</p>
                                     <span class="vehicle-rating__info tooltip" title="The block shows vehicle rating determined by our experts. It’s based on such criteria like real cost and resold status and many others which are not included in the public information about a vehicle. Rating variates from A+ to F. A+ rated vehicles are the least risky in terms of buying, F rated - the most."></span>
                                 </div>
-                                <div class="vehicle-rating__wrapper">
+                                <div class="vehicle-rating__wrapper blur-active">
                                     <div class="vehicle-rating__column-left">
                                         <div class="vehicle-rating__info-list">
                                             <p class="vehicle-rating__info-text">
@@ -404,7 +404,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="blur-block"></div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -674,15 +676,11 @@
                                 <span class="vehicle-rating__info tooltip" title="The block shows recently sold vehicles with the most similar damage and conditions and their prices. Vehicles being chosen with a special algorithm that determines criteria of coincidence over all available parameters and rates each of them with specific value. More valuable criteria like damage and title go first and they have more weight and less valuable like fuel type and trim go at the end. According to this information we show you the most valueble vehicles, bidding on which can save you from spending more money on the repairing."></span>
 
                             </div>
-                            <div class="last-sold__wrapper ">
+                            <div class="last-sold__wrapper blur-active">
                                 <div class="last-sold__column">
                                     <div class="last-sold__box-info ">
                                         <div class="last-sold__picture-env">
                                             <img class="picture-env" src="img/last-car.png" alt="picture">
-                                            <div class="last-sold__price-mobile">
-                                                <span>Lot sold for:</span>
-                                                <b>999,999 USD</b>
-                                            </div>
                                         </div>
                                         <div class="last-sold__column-info">
                                             <a class="last-sold__title uppercase" href="#">
@@ -707,10 +705,6 @@
                                     <div class="last-sold__box-info">
                                         <div class="last-sold__picture-env">
                                             <img class="picture-env" src="img/last-car.png" alt="picture">
-                                            <div class="last-sold__price-mobile">
-                                                <span>Lot sold for:</span>
-                                                <b>999,999 USD</b>
-                                            </div>
                                         </div>
                                         <div class="last-sold__column-info">
                                             <a class="last-sold__title uppercase elipsis-text" href="#">
@@ -739,7 +733,7 @@
                                     <p class="vehicle-rating__title">AAS vehicle rating</p>
                                     <span class="vehicle-rating__info tooltip" title="The block shows vehicle rating determined by our experts. It’s based on such criteria like real cost and resold status and many others which are not included in the public information about a vehicle. Rating variates from A+ to F. A+ rated vehicles are the least risky in terms of buying, F rated - the most."></span>
                                 </div>
-                                <div class="vehicle-rating__wrapper">
+                                <div class="vehicle-rating__wrapper blur-active">
                                     <div class="vehicle-rating__column-left">
                                         <div class="vehicle-rating__info-list">
                                             <p class="vehicle-rating__info-text">
@@ -821,6 +815,7 @@
                                     <div class="vehicle-rating__footer-box">
                                         <div class="vehicle-rating__b-box" style="background-color: #E1FB01">B</div>
                                     </div>
+                                    <div class="blur-block"></div>
                                 </div>
                             </div>
                             <div class="show-tablet tablet-col-x3 last-column">
@@ -829,134 +824,174 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bid_form" id="lot">
-                            <transition name="fadeHeight">
-                                <div class="copart-nav" id="state-0" v-if="coparNnav">
-                                    <div class="copart-btn-wrap">
-                                        <div class="time-wrap">
-                                            <span>Time left:</span>
-                                            <span id="time-wrap">10 d 24 h 10 m </span>
-                                        </div>
-                                        <div class="copart-btn-container">
-                                            <div class="copart-price-wrap">
-                                                <span class="copart-price-title">Buy now price</span>
-                                                <span class="copart-price">$300,000</span>
-                                                <a href="javascript:void(0)" class="result-btn result-btn_yellow buy-now" v-on:click="buyNowFunc">BUY NOW</a>
-                                            </div>
-
-                                            <div class="copart-price-wrap">
-                                                <span class="copart-price-title">Current bid</span>
-                                                <span class="copart-price" data-min_bid="1700">1,700 USD</span>
-                                                <a href="#" class="result-btn result-btn_blue bid-btn">BID</a>
-                                            </div>
-
-                                            <div class="copart-price-wrap">
-                                                <span class="copart-price-title">Your bid</span>
-                                                <span class="copart-price" data-min_bid="1700">0 USD</span>
-                                                <a href="#" class="your-bid-btn your-bid-btn--never">Never bid</a>
-                                            </div>
-                                        </div>
+                        <div class="bid_form">
+                            <div class="copart-nav" id="state-0">
+                                <div class="copart-btn-wrap">
+                                    <div class="time-wrap">
+                                        <span>Time left:</span>
+                                        <span id="time-wrap">10 d 24 h 10 m </span>
                                     </div>
-                                    <div class="copart-bid-wrap">
-                                        <div class="subscribe-wrap hide">
-                                            <span><a href="#">Subscribe</a> to unlock Estimated final bid block</span>
+                                    <div class="copart-btn-container">
+                                        <div class="copart-price-wrap">
+                                            <span class="copart-price-title">Buy now price</span>
+                                            <span class="copart-price">$300,000</span>
+                                            <a href="#" class="result-btn result-btn_yellow buy-now">BUY NOW</a>
                                         </div>
-                                        <div class="copart-bid">
-                                            <span class="copart-bid-title">Estimated Final Bid</span>
-                                            <span class="copart-price copart-price_blur copart-price_blue">25,000 USD</span>
+
+                                        <div class="copart-price-wrap">
+                                            <span class="copart-price-title">Current bid</span>
+                                            <span class="copart-price" data-min_bid="1700">1,700 USD</span>
+                                            <a href="#" class="result-btn result-btn_blue bid-btn">BID</a>
                                         </div>
-                                        <div class="copart-bid">
-                                            <span class="copart-bid-title">Average bid</span>
-                                            <span class="copart-price copart-price_blur copart-price_blue">23,000 USD</span>
+
+                                        <div class="copart-price-wrap">
+                                            <span class="copart-price-title">Your bid</span>
+                                            <span class="copart-price" data-min_bid="1700">0 USD</span>
+                                            <a href="#" class="your-bid-btn your-bid-btn--never">Never bid</a>
                                         </div>
                                     </div>
                                 </div>
-                            </transition>
+                                <div class="copart-bid-wrap blur-active">
+                                    <span class="vehicle-rating__info tooltip" title="The block shows vehicle rating determined by our experts. It’s based on such criteria like real cost and resold status and many others which are not included in the public information about a vehicle. Rating variates from A+ to F. A+ rated vehicles are the least risky in terms of buying, F rated - the most."></span>
 
-                            <transition name="fadeHeight" >
-                                <div class="choose-place" v-if="buyNow">
-                                    <div class="choose-place__enveloping">
-                                        <div class="choose-place__boxes">
-
-                                            <div class="choose-info__wrapper">
-                                                <div class="choose-info__title">
-                                                    The Maximum Bid
-                                                </div>
-                                                <div class="choose-info__txt">
-                                                    Enter the maximum bid you are willing to pay for the vehicle and our system will bid on your behalf up to your maximum bid during the  auction. It will only bid one increment, e.g. 25, 50, 100 USD etc., over the current bid to maintain your position as the highest bidder. This allows you to purchase a vehicle below your maximum bid if bidding doesn’t meet or exceed your maximum bid. Rely on the estimated final bid to increase your chances to win the vehicle.
-                                                </div>
-                                            </div>
-                                            <div class="choose-place__box-middle">
-                                                <div class="bid_form_error">Enter correct bid. Minimum for this car is <span class="min_bid">1700</span>. Bid should be multiple to <span class="increment"></span></div>
-                                                <div class="form_point_block">
-                                                    <div class="choose-place__btn-counter">
-
-                                                        <div class="current-bid">
-                                                            <div>Current bid, USD</div>
-                                                            <input type="text" value="1,700">
-                                                        </div>
-
-                                                        <div class="you-bid">
-                                                            <div>Your bid, USD</div>
-                                                            <input type="text" value="1,750">
-                                                        </div>
-
-                                                        <div class="btn-counter-wrap">
-                                                            <div class="max-bid">Enter your maximum, USD</div>
-                                                            <div class="btn-counter">
-                                                                <button class="btn-counter__clickable clickable-left btn-minus" type="button">
-                                                                    <span>-</span>
-                                                                </button>
-                                                                <span class="btn-counter__currency">
-                                                                <input class="btn-counter__input" type="text" value="$1700" step="100" min="1700"/>
-                                                            </span>
-                                                                <button class="btn-counter__clickable clickable-right btn-plus" type="button">
-                                                                    <span>+</span>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-
+                                    <div class="subscribe-wrap hide">
+                                        <span><a href="#">Subscribe</a> to unlock Estimated final bid block</span>
+                                    </div>
+                                    <div class="copart-bid">
+                                        <span class="copart-bid-title">Estimated Final Bid</span>
+                                        <span class="copart-price copart-price_blur copart-price_blue">25,000 USD</span>
+                                    </div>
+                                    <div class="copart-bid">
+                                        <span class="copart-bid-title">Average bid</span>
+                                        <span class="copart-price copart-price_blur copart-price_blue">23,000 USD</span>
+                                    </div>
+                                    <div class="blur-block"></div>
+                                </div>
+                            </div>
+                            <div class="choose-place" id="state-1">
+                                <div class="choose-place__enveloping">
+                                    <div class="choose-place__boxes">
+                                        <div class="choose-place__top-env">
+                                            <a class="choose-place__button-back" href="#">
+                          <span class="choose-place__icon-back">
+                            Back
+                          </span>
+                                            </a>
+                                            <a class="choose-place__button-back sub_final" href="#">
+                          <span class="choose-place__icon-back">
+                            Back
+                          </span>
+                                            </a>
+                                            <p class="choose-place__title-top uppercase">
+                                                CHOOSE A BROKER AND PLACE BID
+                                            </p>
+                                        </div>
+                                        <div class="choose-place__wrapper">
+                                            <div class="choose-place__column">
+                                                <div class="choose-place__envelope-box">
+                                                    <p class="choose-place__title uppercase">
+                                                        AutoBidMaster, LLC
+                                                    </p>
+                                                    <div class="choose-place__list-stars">
+                                                        <ul class="list-stars">
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                    <a href="#" class="result-btn result-btn_blue final-btn">BID</a>
+                                                    <p class="choose-place__price">
+                                                        Transaction free 10% or $299
+                                                    </p>
+                                                    <div class="choose-place__radio-input">
+                                                        <input class="choose-place__input-check" name="radio" type="radio" id="first__"/>
+                                                        <label class="choose-place__label-check" for="first"></label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="choose-place__err-txt">
-                                                Enter correct bid. Minimum for this car is <min bid>. Bid should be multiple to <increment>.
-                                            </div>
-                                            <div class="choose-place__txt">
-                                                By clicking the bid button, you accept transferring your personal data to the broker and Copart, Inc and you acknowledge that you have familiarized yourself with fees and you agree with them. Auto Auction Spot is not responsible for the condition of vehicles and they might be different from the shown on images.
-                                            </div>
-                                            <div class="choose-place__top-env">
-                                                <a class="choose-place__button-back" href="javascript:void(0)" v-on:click="backNow">
-                                                  <span class="choose-place__icon-back">
-                                                    Close
-                                                  </span>
-                                                </a>
+                                            <div class="choose-place__column">
+                                                <div class="choose-place__envelope-box">
+                                                    <p class="choose-place__title uppercase">
+                                                        Salvagereseller, LLC
+                                                    </p>
+                                                    <div class="choose-place__list-stars">
+                                                        <ul class="list-stars">
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                            <li class="list-stars__item">
+                                                                <span class="list-stars__icon"></span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <p class="choose-place__price">
+                                                        Transaction fee 5% or $250
+                                                    </p>
+                                                    <div class="choose-place__radio-input">
+                                                        <input class="choose-place__input-check" name="radio" type="radio" id="second__"/>
+                                                        <label class="choose-place__label-check" for="second"></label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="choose-place__box-bottom copart-bid-wrap">
-                                            <div class="choose-place__bottom-column">
-                                                <p class="choose-place__title uppercase">
-                                                    Estimated Final Bid
-                                                </p>
-                                                <p class="choose-place__count-value uppercase">
-                                                    $25,000
-                                                </p>
+                                        <div class="choose-place__box-middle">
+                                            <div class="bid_form_error">Enter correct bid. Minimum for this car is <span class="min_bid">1700</span>. Bid should be multiple to <span class="increment"></span></div>
+                                            <div class="form_point_block">
+                                                <div class="choose-place__btn-counter">
+                                                    <div class="btn-counter">
+                                                        <button class="btn-counter__clickable clickable-left btn-minus" type="button">
+                                                            <span>-</span>
+                                                        </button>
+                                                        <span class="btn-counter__currency">
+                                          <input class="btn-counter__input" type="text" value="$1700" step="100" min="1700"/>
+                                      </span>
+                                                        <button class="btn-counter__clickable clickable-right btn-plus" type="button">
+                                                            <span>+</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="result-btn result-btn_blue final-btn">BID</a>
                                             </div>
-                                            <div class="choose-place__bottom-column">
-                                                <p class="choose-place__title uppercase">
-                                                    accuracy
-                                                </p>
-                                                <p class="choose-place__count-value uppercase">
-                                                    87%
-                                                </p>
-                                            </div>
+                                            <div class="bid_form_info">By clicking bid button you accept transfering of your personal data with chosen broker</div>
+                                        </div>
+                                    </div>
+                                    <div class="choose-place__box-bottom copart-bid-wrap">
+                                        <div class="choose-place__bottom-column">
+                                            <p class="choose-place__title uppercase">
+                                                Estimated Final Bid
+                                            </p>
+                                            <p class="choose-place__count-value uppercase">
+                                                $25,000
+                                            </p>
+                                        </div>
+                                        <div class="choose-place__bottom-column">
+                                            <p class="choose-place__title uppercase">
+                                                accuracy
+                                            </p>
+                                            <p class="choose-place__count-value uppercase">
+                                                87%
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                            </transition>
-
-
+                            </div>
                             <div class="choose-place" id="state-2">
                                 <div class="choose-place__enveloping">
                                     <div class="choose-place__boxes">
@@ -1399,7 +1434,6 @@
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/header.js"></script>
-<script src="js/lot.js"></script>
 
 </body>
 

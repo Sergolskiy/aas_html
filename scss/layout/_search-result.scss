@@ -78,6 +78,10 @@
     align-items: flex-end;
     margin: 0 auto;
 
+    &--grey{
+        background: #C4C4C4;
+    }
+
     &_relative {
         top: 0 !important;
         @media screen and (min-width: 1193px) {

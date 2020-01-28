@@ -176,12 +176,20 @@ $(document).ready(function () {
         slidesToScroll: 1,
         arrows: false,
         dots: false,
-        responsive: [{
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 300,
+                settings: {
+                    slidesToShow: 1,
+                }
             }
-        }]
+        ]
     });
 
     function checkWidth() {
@@ -322,35 +330,52 @@ $(document).ready(function () {
 
 
     // State
-    $('.buy-now').on('click', function (e) {
-        e.preventDefault();
-        $('#state-0').hide();
-        $('#state-2').fadeIn(200);
+    // $('.buy-now').on('click', function (e) {
+    //     e.preventDefault();
+    //     $('#state-0').hide();
+    //     $('#state-2').fadeIn(200);
+    // });
+
+    // $('.bid-btn').on('click', function (e) {
+    //     e.preventDefault();
+    //     $('#state-0').hide();
+    //     $('#state-1').fadeIn(200);
+    // });
+    //
+    // $('.sub_final').on('click', function (e) {
+    //     e.preventDefault();
+    //     $('#state-1, #state-2').hide();
+    //     $('#state-0').show();
+    // });
+    //
+    // $('.final-btn').on('click', function (e) {
+    //     e.preventDefault();
+    //     $('#state-1, #state-2').hide();
+    //     $('#state-3').show();
+    // });
+    //
+    // $('.choose-place__button-back').on('click', function (e) {
+    //     e.preventDefault();
+    //     $('#state-1, #state-2, #state-3').hide();
+    //     $('#state-0').show();
+    // });
+
+    $('.last-sold__list-info').each(function (i) {
+        console.log($(this).width() > $(this).closest('.last-sold__column-info').width());
+        if ($(this).width() > $(this).closest('.last-sold__column-info').width()) {
+            $(this).closest('.last-sold__column-info').addClass('cus-scroll');
+            $(this).closest('.last-sold__box-info').addClass('scroll-block');
+        }
+
+
+        if($('.last-sold__list-info').length-1 == i){
+            $(".cus-scroll").mCustomScrollbar({
+                axis: "x",
+                advanced: {autoExpandHorizontalScroll: true}
+            });
+        }
     });
 
-    $('.bid-btn').on('click', function (e) {
-        e.preventDefault();
-        $('#state-0').hide();
-        $('#state-1').fadeIn(200);
-    });
-
-    $('.sub_final').on('click', function (e) {
-        e.preventDefault();
-        $('#state-1, #state-2').hide();
-        $('#state-0').show();
-    });
-
-    $('.final-btn').on('click', function (e) {
-        e.preventDefault();
-        $('#state-1, #state-2').hide();
-        $('#state-3').show();
-    });
-
-    $('.choose-place__button-back').on('click', function (e) {
-        e.preventDefault();
-        $('#state-1, #state-2, #state-3').hide();
-        $('#state-0').show();
-    });
 
 
 });
