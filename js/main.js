@@ -180,15 +180,15 @@ $(document).ready(function () {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 300,
-                settings: {
                     slidesToShow: 1,
                 }
-            }
+            },
+            // {
+            //     breakpoint: 300,
+            //     settings: {
+            //         slidesToShow: 1,
+            //     }
+            // }
         ]
     });
 
@@ -327,6 +327,8 @@ $(document).ready(function () {
             // document.getElementById("time-wrap").innerHTML = "EXPIRED";
         }
     }, 1000);
+
+
 
 
     // State

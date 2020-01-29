@@ -524,7 +524,7 @@
     align-items: center;
     border-bottom: 1px solid #C5B100;
 
-    @media screen and (min-width: 360px) {
+    @media screen and (min-width: 320px) {
         padding: 20px 5px;
     }
 
@@ -779,6 +779,9 @@
 
     .result-btn{
         width: 130px;
+        font-size: 14px;
+        height: 36px;
+        padding: 8px 5px;
     }
 }
 
@@ -1131,7 +1134,7 @@
         color: #0082FB;
 
         &:hover {
-            opacity: .7;
+            //opacity: .7;
         }
 
         &_black {
@@ -1231,7 +1234,7 @@
         &_low {
             font-size: 14px;
             font-weight: 700;
-            color: #FFC582;
+            color: #FF8282;
         }
 
         &_very-low {
@@ -1351,7 +1354,7 @@
     font-size: 14px;
     line-height: 19px;
     padding: 2px 16px 3px;
-    margin-top: 8px;
+    margin-top: 4px;
 
     &--won{
         border: 1px solid #009C35;
@@ -1399,8 +1402,8 @@
     .blur-block{
         position: absolute;
         top: -10px;
-        left: -10px;
-        width: calc(100% + 20px);
+        left: -4px;
+        width: calc(100% + 8px);
         height: calc(100% + 20px);
         background: white;
         background: rgba(255, 255, 255, 0.6);
@@ -1492,4 +1495,25 @@
 {
     opacity: 0;
     max-height: 0;
+}
+
+.notifyjs-foo-base{
+    background: #F4FFF9;
+    border: 1px solid #06931E;
+    max-width: 400px;
+    padding: 10px;
+    
+    b{
+        color: #06931E;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    div{
+        font-size: 12px;
+        line-height: 16px;
+    }
 }

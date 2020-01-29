@@ -413,9 +413,9 @@
                         <div class="featured-env hide-tablet">
                             <div class="featured-env__column">
                                 <div class="featured-env__box-info broker">
-                                    <a class="featured-env__button" href="#">
+                                    <span class="featured-env__button">
                                         featured broker
-                                    </a>
+                                    </span>
                                     <p class="featured-env__title">
                                         uShip Inc.
                                     </p>
@@ -445,9 +445,9 @@
                             </div>
                             <div class="featured-env__column">
                                 <div class="featured-env__box-info shipper">
-                                    <a class="featured-env__button" href="#">
+                                    <span class="featured-env__button">
                                         featured shipper
-                                    </a>
+                                    </span>
                                     <p class="featured-env__title">
                                         HAULMATCH, LLC
                                     </p>
@@ -830,6 +830,7 @@
                             </div>
                         </div>
                         <div class="bid_form" id="lot">
+
                             <transition name="fadeHeight">
                                 <div class="copart-nav" id="state-0" v-if="coparNnav">
                                     <div class="copart-btn-wrap">
@@ -847,7 +848,7 @@
                                             <div class="copart-price-wrap">
                                                 <span class="copart-price-title">Current bid</span>
                                                 <span class="copart-price" data-min_bid="1700">1,700 USD</span>
-                                                <a href="#" class="result-btn result-btn_blue bid-btn">BID</a>
+                                                <a href="javascript:void(0)" class="result-btn result-btn_blue bid-btn" v-on:click="bidNowFunc">BID</a>
                                             </div>
 
                                             <div class="copart-price-wrap">
@@ -874,7 +875,7 @@
                             </transition>
 
                             <transition name="fadeHeight" >
-                                <div class="choose-place" v-if="buyNow">
+                                <div class="choose-place" v-if="bid">
                                     <div class="choose-place__enveloping">
                                         <div class="choose-place__boxes">
 
@@ -898,30 +899,30 @@
 
                                                         <div class="you-bid">
                                                             <div>Your bid, USD</div>
-                                                            <input type="text" value="1,750">
+                                                            <input type="text" value="1,800">
                                                         </div>
 
                                                         <div class="btn-counter-wrap">
                                                             <div class="max-bid">Enter your maximum, USD</div>
                                                             <div class="btn-counter">
-                                                                <button class="btn-counter__clickable clickable-left btn-minus" type="button">
+                                                                <button class="btn-counter__clickable clickable-left btn-minus" v-on:click="counterMinus" type="button">
                                                                     <span>-</span>
                                                                 </button>
                                                                 <span class="btn-counter__currency">
-                                                                <input class="btn-counter__input" type="text" value="$1700" step="100" min="1700"/>
+                                                                <input class="btn-counter__input" type="text" value="1700" step="100" min="1700"/>
                                                             </span>
-                                                                <button class="btn-counter__clickable clickable-right btn-plus" type="button">
+                                                                <button class="btn-counter__clickable clickable-right btn-plus" v-on:click="counterPlus" type="button">
                                                                     <span>+</span>
                                                                 </button>
                                                             </div>
                                                         </div>
 
                                                     </div>
-                                                    <a href="#" class="result-btn result-btn_blue final-btn">BID</a>
+                                                    <a href="javascript:void(0)" class="result-btn result-btn_blue final-btn" v-on:click="bidLot">BID</a>
                                                 </div>
                                             </div>
-                                            <div class="choose-place__err-txt">
-                                                Enter correct bid. Minimum for this car is <min bid>. Bid should be multiple to <increment>.
+                                            <div class="choose-place__err-txt" v-if="showErr">
+                                                Enter correct bid. Minimum for this car is &lt;min bid&gt;. Bid should be multiple to &lt;increment&gt;.
                                             </div>
                                             <div class="choose-place__txt">
                                                 By clicking the bid button, you accept transferring your personal data to the broker and Copart, Inc and you acknowledge that you have familiarized yourself with fees and you agree with them. Auto Auction Spot is not responsible for the condition of vehicles and they might be different from the shown on images.
@@ -934,186 +935,237 @@
                                                 </a>
                                             </div>
                                         </div>
+
+                                        <div class="choose-place__table">
+                                            <div class="choose-place__table-title">
+                                                Final Price Calculator, USD
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Bid amount
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    120,000
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Copart fees
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    1,200
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Documentation fee
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    100
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Transaction fee
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    285
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Total
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    121,485
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-bottom-row">
+                                                This is an estimate only and not a final cost. The final cost will depend on the amount of winning bid and might be lower or higher.
+                                                <a href="#">Learn more</a> about fees.
+                                            </div>
+                                        </div>
+
                                         <div class="choose-place__box-bottom copart-bid-wrap">
                                             <div class="choose-place__bottom-column">
                                                 <p class="choose-place__title uppercase">
                                                     Estimated Final Bid
                                                 </p>
                                                 <p class="choose-place__count-value uppercase">
-                                                    $25,000
+                                                    25,000 USD
                                                 </p>
                                             </div>
                                             <div class="choose-place__bottom-column">
-                                                <p class="choose-place__title uppercase">
-                                                    accuracy
+                                                <p class="choose-place__title ">
+                                                    Average Bid
                                                 </p>
                                                 <p class="choose-place__count-value uppercase">
-                                                    87%
+                                                    23,000 USD
                                                 </p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="choose-place__top-env choose-place__top-env--bottom">
+                                        <a class="choose-place__button-back" href="javascript:void(0)" v-on:click="backNow">
+                                                  <span class="choose-place__icon-back">
+                                                    Close
+                                                  </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </transition>
+
+                            <transition name="fadeHeight" >
+                                <div class="choose-place" v-if="buyNow">
+                                    <div class="choose-place__enveloping">
+                                        <div class="choose-place__boxes">
+
+                                            <div class="choose-info__wrapper">
+                                                <div class="choose-info__title">
+                                                    The buy now offer
+                                                </div>
+                                                <div class="choose-info__txt">
+                                                    The buy now offer is the instant way to buy out the vehicle you have been looking for, without participating in the auction. The buy now price can not be changed and you will pay exact amount of bid that is set by the seller.
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__box-middle">
+                                                <div class="bid_form_error">Enter correct bid. Minimum for this car is <span class="min_bid">1700</span>. Bid should be multiple to <span class="increment"></span></div>
+                                                <div class="form_point_block">
+                                                    <div class="choose-place__btn-counter">
+
+                                                        <div class="buy-now-bid">
+                                                            <div>Your buy now bid, USD</div>
+                                                            <input type="text" value="2000">
+                                                        </div>
+
+
+                                                    </div>
+                                                    <a href="javascript:void(0)" class="result-btn result-btn_yellow buy-now" v-on:click="buyLot">BUY NOW</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="choose-place__txt">
+                                                By clicking the bid button, you accept transferring your personal data to the broker and Copart, Inc and you acknowledge that you have familiarized yourself with fees and you agree with them. Auto Auction Spot is not responsible for the condition of vehicles and they might be different from the shown on images.
+                                            </div>
+                                            <div class="choose-place__top-env">
+                                                <a class="choose-place__button-back" href="javascript:void(0)" v-on:click="backNow">
+                                                  <span class="choose-place__icon-back">
+                                                    Close
+                                                  </span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="choose-place__table">
+                                            <div class="choose-place__table-title">
+                                                Final Price Calculator, USD
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Bid amount
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    120,000
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Copart fees
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    1,200
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Documentation fee
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    100
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Transaction fee
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    285
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-row">
+                                                <div class="choose-place__table-col">
+                                                    Total
+                                                </div>
+                                                <div class="choose-place__table-col">
+
+                                                </div>
+                                                <div class="choose-place__table-col">
+                                                    121,485
+                                                </div>
+                                            </div>
+                                            <div class="choose-place__table-bottom-row">
+                                                This is an estimate only and not a final cost. The final cost will depend on the amount of winning bid and might be lower or higher.
+                                                <a href="#">Learn more</a> about fees.
+                                            </div>
+                                        </div>
+
+                                        <div class="choose-place__box-bottom copart-bid-wrap">
+                                            <div class="choose-place__bottom-column">
+                                                <p class="choose-place__title uppercase">
+                                                    Estimated Final Bid
+                                                </p>
+                                                <p class="choose-place__count-value uppercase">
+                                                    25,000 USD
+                                                </p>
+                                            </div>
+                                            <div class="choose-place__bottom-column">
+                                                <p class="choose-place__title ">
+                                                    Average Bid
+                                                </p>
+                                                <p class="choose-place__count-value uppercase">
+                                                    23,000 USD
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="choose-place__top-env choose-place__top-env--bottom">
+                                        <a class="choose-place__button-back" href="javascript:void(0)" v-on:click="backNow">
+                                                  <span class="choose-place__icon-back">
+                                                    Close
+                                                  </span>
+                                        </a>
                                     </div>
                                 </div>
                             </transition>
 
 
-                            <div class="choose-place" id="state-2">
-                                <div class="choose-place__enveloping">
-                                    <div class="choose-place__boxes">
-                                        <div class="choose-place__top-env">
-                                            <a class="choose-place__button-back" href="#">
-                          <span class="choose-place__icon-back">
-                            Back
-                          </span>
-                                            </a>
-                                            <a class="choose-place__button-back sub_final" href="#">
-                          <span class="choose-place__icon-back">
-                            Back
-                          </span>
-                                            </a>
-                                            <p class="choose-place__title-top uppercase">
-                                                CHOOSE A BROKER AND PLACE BID
-                                            </p>
-                                        </div>
-                                        <div class="choose-place__wrapper">
-                                            <div class="choose-place__column">
-                                                <div class="choose-place__envelope-box">
-                                                    <p class="choose-place__title uppercase">
-                                                        AutoBidMaster, LLC
-                                                    </p>
-                                                    <div class="choose-place__list-stars">
-                                                        <ul class="list-stars">
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="choose-place__price">
-                                                        Transaction free 10% or $299
-                                                    </p>
-                                                    <div class="choose-place__radio-input">
-                                                        <input class="choose-place__input-check" name="radio" type="radio" id="first"/>
-                                                        <label class="choose-place__label-check" for="first"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="choose-place__column">
-                                                <div class="choose-place__envelope-box">
-                                                    <p class="choose-place__title uppercase">
-                                                        Salvagereseller, LLC
-                                                    </p>
-                                                    <div class="choose-place__list-stars">
-                                                        <ul class="list-stars">
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                            <li class="list-stars__item">
-                                                                <span class="list-stars__icon"></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="choose-place__price">
-                                                        Transaction fee 5% or $250
-                                                    </p>
-                                                    <div class="choose-place__radio-input">
-                                                        <input class="choose-place__input-check" name="radio" type="radio" id="second"/>
-                                                        <label class="choose-place__label-check" for="second"></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="choose-place__box-middle">
-                                            <div class="form_point_block">
-                                                <div class="choose-place__btn-counter">
-                                                    <div class="btn-counter">
-                                                        <input class="btn-counter__input" type="text" value="$300000" step="100" readonly/>
-                                                    </div>
-                                                </div>
-                                                <a class="result-btn result-btn_yellow final-btn" href="#">Buy now</a>
-                                            </div>
-                                            <div class="bid_form_info">By clicking bid button you accept transfering of your personal data with chosen broker</div>
-                                        </div>
-                                    </div>
-                                    <div class="choose-place__box-bottom copart-bid-wrap">
-                                        <div class="choose-place__bottom-column">
-                                            <p class="choose-place__title uppercase">
-                                                Estimated final bid
-                                            </p>
-                                            <p class="choose-place__count-value uppercase">
-                                                $25,000
-                                            </p>
-                                        </div>
-                                        <div class="choose-place__bottom-column">
-                                            <p class="choose-place__title uppercase">
-                                                accuracy
-                                            </p>
-                                            <p class="choose-place__count-value uppercase">
-                                                87%
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="choose-place" id="state-3">
-                                <div class="choose-place__enveloping">
-                                    <div class="choose-place__boxes">
-                                        <div class="choose-place__top-env">
-                                            <a class="choose-place__button-back" href="#">
-                      <span class="choose-place__icon-back">
-                        Back
-                      </span>
-                                            </a>
-                                        </div>
-                                        <div class="choose-place__wrapper">
-                                            <div class="choose-place__last-text">
-                                                <p class="last-text">
-                                                    Your bid was accepted.
-                                                    <br>
-                                                    You will be contacted by a broker name soon.
-                                                    <br>
-                                                    Please, check your email.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="choose-place__box-bottom copart-bid-wrap">
-                                        <div class="choose-place__bottom-column">
-                                            <p class="choose-place__title uppercase">
-                                                Estimated final bid
-                                            </p>
-                                            <p class="choose-place__count-value uppercase">
-                                                $25,000
-                                            </p>
-                                        </div>
-                                        <div class="choose-place__bottom-column">
-                                            <p class="choose-place__title uppercase">
-                                                accuracy
-                                            </p>
-                                            <p class="choose-place__count-value uppercase">
-                                                87%
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="adversting-info">
                             <b>VEHICLE SOLD "AS IS"</b>: The motor vehicle sold under this contract is being sold "as-is" and is not represented as being in roadworthy condition, mechanically sound or maintained at any guaranteed level of quality. The vehicle may not be fit for use as a means of transportation and may require substantial repairs at the purchaser's expense. It may not be possible to register the vehicle to be driven in its current condition.
@@ -1138,9 +1190,9 @@
                         <div class="featured-env__row">
                             <div class="featured-env__column">
                                 <div class="featured-env__box-info broker">
-                                    <a class="featured-env__button" href="#">
+                                    <span class="featured-env__button">
                                         featured broker
-                                    </a>
+                                    </span>
                                     <p class="featured-env__title">
                                         AutoBidMaster, LLC
                                     </p>
@@ -1178,9 +1230,9 @@
                             </div>
                             <div class="featured-env__column">
                                 <div class="featured-env__box-info shipper">
-                                    <a class="featured-env__button" href="#">
+                                    <span class="featured-env__button">
                                         featured shipper
-                                    </a>
+                                    </span>
                                     <p class="featured-env__title">
                                         HAULMATCH, LLC
                                     </p>
@@ -1342,12 +1394,18 @@
                 </div>
                 <div class="content content_lot">
                     <p class="car-name">Bentley models</p>
-                    <span><a href="#">Acura</a> <span class="model-count">(1700)</span> </span>
-                    <span><a href="#">Audi</a> <span class="model-count">(1700)</span> </span>
-                    <span><a href="#">BMW</a> <span class="model-count">(1700)</span> </span>
-                    <span><a href="#">Buick</a> <span class="model-count">(1700)</span> </span>
-                    <span><a href="#">Cadillac</a> <span class="model-count">(1700)</span> </span>
-                    <span><a href="#">Chevrolet</a> <span class="model-count">(1700)</span> </span>
+                    <span><a href="#">Arnage</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Arnage</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Mulsane</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Bentyaga </a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Bentyaga</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Eight</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Azure</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Azure</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Mulsane</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Continental</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Continental</a> <span class="model-count">(1000)</span> </span>
+                    <span><a href="#">Eight</a> <span class="model-count">(1000)</span> </span>
                 </div>
                 <div class="lot-content">
                     <div class="result-description result-description_lot">
@@ -1396,6 +1454,7 @@
 <script src="js/jquery.ellipsis.min.js"></script>
 <script src="js/tooltipster.bundle.min.js"></script>
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/notify.min.js"></script>
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/header.js"></script>
