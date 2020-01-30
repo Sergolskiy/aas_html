@@ -47,9 +47,9 @@ let appLot = new Vue({
     },
 
     scroolToLot(){
-      if(window.innerWidth < 992){
-        document.getElementById('lot').scrollIntoView();
-      }
+      // if(window.innerWidth < 992){
+      //   document.getElementById('lot').scrollIntoView();
+      // }
     },
 
     counterMinus() {

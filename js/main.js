@@ -171,34 +171,61 @@ $(document).ready(function () {
         navigateByKeyboard: true
     });
 
-    $('.bottom-slider').slick({
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-        dots: false,
-        responsive: [
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                }
-            },
-            // {
-            //     breakpoint: 300,
-            //     settings: {
-            //         slidesToShow: 1,
-            //     }
-            // }
-        ]
-    });
+    // $('.bottom-slider').slick({
+    //     slidesToShow: 2,
+    //     slidesToScroll: 1,
+    //     arrows: false,
+    //     dots: false,
+    //     responsive: [
+    //         {
+    //             breakpoint: 600,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //             }
+    //         },
+    //         // {
+    //         //     breakpoint: 300,
+    //         //     settings: {
+    //         //         slidesToShow: 1,
+    //         //     }
+    //         // }
+    //     ]
+    // });
 
     function checkWidth() {
-        if ($(window).width() < 1000) {
+        if ($(window).width() < 1199) {
             $('.bottom-slider').slick({
-                slidesToShow: 1,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 arrows: false,
                 dots: false,
+                responsive: [
+                    {
+                        breakpoint: 1005,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 740,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 550,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+
+                ]
             });
         } else {
             $('.bottom-slider').slick('unslick');
@@ -261,8 +288,8 @@ $(document).ready(function () {
                     yAxes: [{
                         ticks: {
                             beginAtZero: false,
-                            max: 190,
-                            min: 140
+                            max: 185,
+                            min: 150
                         }
                     }]
                 }
@@ -362,22 +389,33 @@ $(document).ready(function () {
     //     $('#state-0').show();
     // });
 
-    $('.last-sold__list-info').each(function (i) {
-        console.log($(this).width() > $(this).closest('.last-sold__column-info').width());
-        if ($(this).width() > $(this).closest('.last-sold__column-info').width()) {
-            $(this).closest('.last-sold__column-info').addClass('cus-scroll');
-            $(this).closest('.last-sold__box-info').addClass('scroll-block');
-        }
 
 
-        if($('.last-sold__list-info').length-1 == i){
-            $(".cus-scroll").mCustomScrollbar({
-                axis: "x",
-                advanced: {autoExpandHorizontalScroll: true}
-            });
-        }
+    $(window).resize(function () {
+        $('.last-sold__list-info').each(function (i) {
+            console.log($(this).width() > $(this).closest('.last-sold__column-info').width());
+            if ($(this).width() > $(this).closest('.last-sold__column-info').width()) {
+                $(this).closest('.last-sold__column-info').addClass('cus-scroll');
+                $(this).closest('.last-sold__box-info').addClass('scroll-block');
+            }
+
+
+            if($('.last-sold__list-info').length-1 == i){
+                $(".cus-scroll").mCustomScrollbar({
+                    axis: "x",
+                    advanced: {autoExpandHorizontalScroll: true}
+                });
+            }
+        });
+    });
+    $(window).on("load", function () {
+        $(window).resize();
     });
 
+    // fix mozilla
+    setTimeout(function () {
+        $(window).resize();
+    });
 
 
 });
